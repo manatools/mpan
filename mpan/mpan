@@ -1,0 +1,380 @@
+#!/usr/bin/python3 -O
+#  mpan
+#  
+#  Copyright 2018 Papoteur
+#  
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 3 of the License, or
+#  (at your option) any later version.
+#  
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#  
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software
+#  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+#  MA 02110-1301, USA.
+#  
+#  
+
+import manatools.ui.common as common
+import manatools.ui.basedialog as basedialog
+import yui
+import gettext
+import os, glob
+import configreader
+import importlib
+######################################################################
+## 
+##  Mpan
+## 
+######################################################################
+
+class MpDialog(basedialog.BaseDialog):
+    def __init__(self):
+        if os.getuid() == 0 :
+            space = _("System mode")
+        else :
+            space = _("User mode")
+        self._application_name = _("ManaTools panel")
+        ''' _categories stores information on categories. information are loaded from config files
+        Entries are:
+        title
+        icon
+        widget: the pushbutton for the category
+        modules: a tuple which contains a collection of modules information
+        Each element of the _modules tuple is a dictionnary with:
+        title
+        icon
+        launcher or class 
+        
+        _modules is a collection of information on modules. It is build when scaning the categories. Each entry contains a dictionnary with:
+        title
+        icon
+        launcher or class 
+        category : the widget of the category which contains this module
+        widget: the push button widget
+        '''
+        self._categories = []
+        self._modules = []
+        self.dialog = basedialog.BaseDialog.__init__(self, _("Manatools panel - {}").format(space), "", basedialog.DialogType.POPUP, 100, 20)
+
+
+    def UIlayout(self, layout):
+        '''
+        layout to setup UI for Manatools panel
+        '''
+        # used to return information of which module has been selected, to launch it
+        self.selectedModule = ""
+        self.selectedLauncher = ""
+        self.selectedModuleClass = ""
+        
+        self.settings = {'title':self._application_name,'category_title':_("Categories")}
+        self.title = self.settings['title']
+
+        mainLayout = self.factory.createVBox(layout)
+        menuLayout = self.factory.createHBox(mainLayout)
+            ## Menu File
+        # Let's test a Menu widget
+        menu1 = self.factory.createMenuButton(self.factory.createLeft(menuLayout), _("File"))
+        qm = yui.YMenuItem(_("&Quit"))
+        menu1.addItem(qm)
+        menu1.rebuildMenuTree()
+        self.eventManager.addMenuEvent(qm, self.onQuitEvent)
+        menuHelp = self.factory.createMenuButton(self.factory.createRight(menuLayout), _("Help"))
+        qa = yui.YMenuItem(_("&About"))
+        menuHelp.addItem(qa)
+        menuHelp.rebuildMenuTree()
+        self.eventManager.addMenuEvent(qa, self.onAboutEvent)
+
+        mylayout = self.factory.createHBox(mainLayout)
+        #create left Panel Frame no need to add a label for title
+        leftPaneFrame = self.factory.createFrame(mylayout, self.settings['category_title'])
+        #create right Panel Frame no need to add a label for title (use setLabel when module changes)
+        self.rightPaneFrame = self.factory.createFrame(mylayout, "")
+        bottomLayout =  self.factory.createHBox(mainLayout)
+
+            #create replace point for dynamically created widgets
+        self.myReplacePoint = self.factory.createReplacePoint (self.rightPaneFrame)
+        self.rightPane = self.factory.createHBox(self.myReplacePoint)
+        self.leftPane = self.factory.createVBox(leftPaneFrame)
+        
+                #logo 
+                #TODO from settings
+                # fix the path
+        logofile = '/usr/lib/perl5/vendor_perl/5.22.3/auto/share/dist/manatools/images/logo_mageia.png'
+
+        myLogo = self.factory.createImage(self.leftPane, logofile)
+        myLogo.setAutoScale(True)
+        self.rightPaneFrame.setWeight(0, 2)
+
+        self.loadFiles()
+        self.refreshPane()
+
+        self.factory.createVStretch(self.leftPane)
+
+        #Fix the path
+        closeButton = self.factory.createPushButton(bottomLayout, _("&Quit"))
+        self.eventManager.addWidgetEvent(closeButton, self.onQuitEvent)
+        quitIcon =  '/usr/lib/perl5/vendor_perl/5.22.3/auto/share/dist/manatools/images/quit.png'
+        closeButton.setIcon(quitIcon)
+
+     # End Dialog layout
+
+    def onCancelEvent(self) :
+        print ("Got a cancel event")
+
+    def onQuitEvent(self) :
+        print ("Quit button pressed")
+        # BaseDialog needs to force to exit the handle event loop 
+        self.ExitLoop()
+
+    def onAboutEvent(self) :
+      ok = common.AboutDialog({
+            'name' : self._application_name,
+            'dialog_mode' : common.AboutDialogMode.TABBED,
+            'version' : "0.1.0",
+            'credits' :"Credits 2018 Papoteur",
+            'license' : 'GPLv3',
+            'authors' : 'Papoteur &lt;papoteur@mageialinux-online.org&gt;',
+            'description' : _("Manatools panel provides an interface for launching modules which are part of the manatools."),
+      })
+
+    def refreshPane(self):
+        while self.rightPane.hasChildren() :
+            #TODO unload displayed modules
+            self.rightPane.deleteChildren()
+        #scan categories to find the category which is active
+        for category in self._categories:
+            if category['active']:
+                # Refresh the title with the selected category's name
+                self.rightPaneFrame .setLabel(category['title'])
+                # Module's buttons are dispatched in two columns
+                rpvbox1 = self.factory.createVBox(self.rightPane)
+                rpvbox2 =  self.factory.createVBox(self.rightPane)
+                side = True
+                for module in self._modules :
+                    if module['category'] == category['widget'] :
+                        if side:
+                            modButton = self.factory.createPushButton(rpvbox1,module['title'])                            
+                        else:
+                            modButton = self.factory.createPushButton(rpvbox2,module['title'])
+                        side = not side
+                        modButton.setIcon('/usr/lib/perl5/vendor_perl/5.22.3/auto/share/dist/manatools/'+module['icon'])
+                        modButton.setStretchable(0, True)
+                        modButton.setStretchable(1, True)
+                        module['widget'] = modButton
+                        #self._categories.append(category)
+
+                        #Add the command to the button
+                        ev = self.eventManager.addWidgetEvent(modButton, self.onModuleSelected, True)
+                break
+        self.myReplacePoint.showChild()
+
+    def loadFiles(self):
+        '''
+        Look for categories configuration files and populate _categories with data
+        Build category buttons
+        '''
+        # category files
+        #TODO Use common module to provide config directory
+        configPathName = "/etc/manatools/mpan"
+        fileName = configPathName + "/categories.conf"
+
+        # configuration file dir
+        directory = configPathName +  "/categories.conf.d"
+
+        categoryFiles = [fileName]
+        l = glob.glob(os.path.join(directory,"*.conf"))
+        for i in l:
+            if os.path.isfile(i) : categoryFiles.append(i)
+
+        for fileName in categoryFiles :
+            print("Parsing category file %s"% fileName)
+            inFile = configreader.ConfigReader(fileName)
+            categories = inFile.read()
+            tmpCat = ""
+            for tmp in categories:
+                tmp['title'] = _(tmp['title'])
+                # debug             $self->D("Load categories: title content is <<%s>>", $title);
+                #TODO Manage icon
+                #if (defined($icon) && (substr( $icon, 0, 1) ne '/')) {
+                    ## icon with relative path?
+                    #$icon = File::ShareDir::dist_file(ManaTools::Shared::distName(), $tmp->{icon});
+                #}
+                tmpCat = self._getCategory(tmp['title'])
+                if (tmpCat == None) :
+                    tmpCat = self._loadCategory(tmp)
+                for module in tmp['modules']:
+                    if 'title' in module.keys():
+                        module['title'] = _(module['title'])
+                        tmpMod = self._getModule(module['title'])
+                        if tmpMod == None :
+                            tmpMod = self._loadModule(module, tmpCat['widget'])
+                    elif 'class' in module.keys():
+                        #TODO manage perl modules
+                        pass
+                
+            # Set the active category as the first one
+            self._categories[0]['active'] = True
+
+    def catLoaded(self, category):
+        '''
+        Look for a category passed as argument if present or not
+        INPUT
+            A dictionnary with 'name' as key
+        OUTPUT 
+            Bolean, True if the given category is already recorded
+        '''
+        present = False
+        if (not category):
+            return present
+        for cat in self._categories:
+            if cat['title'] == category['title'] :
+                present = True
+                break
+        return present
+
+    def modLoaded(self, module):
+        '''
+        Look for a module passed as argument if present or not
+        INPUT
+            A dictionnary with 'title' as key
+        OUTPUT 
+            Bolean, True if the given module is already recorded
+        '''
+        present = False
+        if (not module):
+            return present
+        for mod in self._modules:
+            if mod['title'] == module :
+                present = True
+                break
+        return present
+
+    def _getCategory(self, name):
+        '''
+        INPUT
+            name:     category name
+
+        OUTPUT
+
+            category: category object if exists
+
+        DESCRIPTION
+
+            This method looks for the given category name and returns
+            the real object.
+        '''
+        for category in self._categories :
+            if (category['title'] == name) :
+                return category
+        return None
+
+    def _getModule(self, name):
+        '''
+ INPUT
+    name:     module title
+
+ OUTPUT
+
+    module: module object if exists, else None
+
+ DESCRIPTION
+
+    This method looks for the given category name and returns
+    the real object.
+        '''
+        for module in self._modules :
+            if (module['title'] == name) :
+                return module
+        return None
+
+    def _loadCategory(self, category):
+        '''
+        Creates a new button representing a category
+        '''
+        if (not self.catLoaded(category)):
+            catButton = self.factory.createPushButton(self.leftPane,category['title'])
+            catButton.setIcon('/usr/lib/perl5/vendor_perl/5.22.3/auto/share/dist/manatools/'+category['icon'])
+            catButton.setStretchable(0, True)
+            category['widget'] = catButton
+            self._categories.append(category)
+
+            #Add the command to the button
+            ev = self.eventManager.addWidgetEvent(catButton, self.onCategorySelected, True)
+            return category
+        
+    def onCategorySelected(self, button):
+        i = 0
+        for category in self._categories :
+            if (category['widget'] == button) :
+                print("You chose category <<%s>>"%category['title'])
+                self._categories[i]['active'] = True
+            else: 
+                 self._categories[i]['active'] = False
+            i +=1
+        self.refreshPane()
+
+    def _loadModule(self,module,category):
+        if not self.modLoaded(module['title']):
+            module['category'] = category
+            self._modules.append(module)
+
+    def onModuleSelected(self, button):
+            for module in self._modules :
+                if (module['widget'] == button) :
+                    print("You chose module <<%s>>"%module['title'])
+                    if "launcher" in module.keys() :
+                        self.selectedModule = module['launcher'].split('/')[-1]
+                        self.selectedLauncher = module['launcher']
+                    elif "class" in module.keys() :
+                        words = module['class'].split('.')
+                        self.selectedModule = words[0]
+                        words.pop(0)
+                        self.selectedModuleClass = '.'.join(words)
+                    self.ExitLoop()
+
+    def run(self):
+        '''
+        run the Dialog
+        '''
+        self.backupTitle = yui.YUI.app().applicationTitle()
+        yui.YUI.app().setApplicationTitle(self._title)
+
+        self._setupUI()
+        
+        self._running = True
+        self._handleEvents()
+
+        #restore old application title
+        yui.YUI.app().setApplicationTitle(self.backupTitle)
+
+        self.dialog.destroy()
+        self.dialog = None
+        return self.selectedModule, self.selectedModuleClass, self.selectedLauncher
+
+if __name__ == '__main__':
+    gettext.install('python-manatools', localedir='/usr/share/locale')
+    mp = MpDialog()
+    while True:
+        print("Start")
+        mod, modclass,launcher = mp.run()
+        if mod:
+            if modclass :
+                try:
+                    module = importlib.import_module(mod)
+                    app = eval("module.%s()"%modclass)
+                    app.run()
+                    print("Exited module %s"%modclass)
+                except:
+                    print("Exited module %s abnormally"%modclass)
+            else:
+                os.system("pkexec %s"%launcher)
+        else:
+            break
+        
+

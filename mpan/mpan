@@ -359,9 +359,8 @@ class MpDialog(basedialog.BaseDialog):
 
 if __name__ == '__main__':
     gettext.install('python-manatools', localedir='/usr/share/locale')
-    mp = MpDialog()
     while True:
-        print("Start")
+        mp = MpDialog()
         mod, modclass,launcher = mp.run()
         if mod:
             if modclass :

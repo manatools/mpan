@@ -80,12 +80,12 @@ class MpDialog(basedialog.BaseDialog):
             ## Menu File
         # Let's test a Menu widget
         menu1 = self.factory.createMenuButton(self.factory.createLeft(menuLayout), _("File"))
-        qm = yui.YMenuItem(_("&Quit"))
+        qm = yui.YMenuItem(_("Quit"))
         menu1.addItem(qm)
         menu1.rebuildMenuTree()
         self.eventManager.addMenuEvent(qm, self.onQuitEvent)
         menuHelp = self.factory.createMenuButton(self.factory.createRight(menuLayout), _("Help"))
-        qa = yui.YMenuItem(_("&About"))
+        qa = yui.YMenuItem(_("About"))
         menuHelp.addItem(qa)
         menuHelp.rebuildMenuTree()
         self.eventManager.addMenuEvent(qa, self.onAboutEvent)
@@ -117,7 +117,7 @@ class MpDialog(basedialog.BaseDialog):
         self.factory.createVStretch(self.leftPane)
 
         #Fix the path
-        closeButton = self.factory.createPushButton(bottomLayout, _("&Quit"))
+        closeButton = self.factory.createPushButton(bottomLayout, _("Quit"))
         self.eventManager.addWidgetEvent(closeButton, self.onQuitEvent)
         quitIcon =  '/usr/lib/perl5/vendor_perl/5.22.3/auto/share/dist/manatools/images/quit.png'
         closeButton.setIcon(quitIcon)
@@ -144,6 +144,12 @@ class MpDialog(basedialog.BaseDialog):
       })
 
     def refreshPane(self):
+        for i in range(0, len(self._modules)):
+            if 'widget' in self._modules[i].keys():
+                if self._modules[i]['widget'] :
+                    # Unload event
+                    self.eventManager.removeWidgetEvent(self._modules[i]['widget'], self.onModuleSelected)
+                    self._modules[i]['widget'] = None
         while self.rightPane.hasChildren() :
             #TODO unload displayed modules
             self.rightPane.deleteChildren()
@@ -156,6 +162,7 @@ class MpDialog(basedialog.BaseDialog):
                 rpvbox1 = self.factory.createVBox(self.rightPane)
                 rpvbox2 =  self.factory.createVBox(self.rightPane)
                 side = True
+                i = 0
                 for module in self._modules :
                     if module['category'] == category['widget'] :
                         if side:
@@ -166,11 +173,11 @@ class MpDialog(basedialog.BaseDialog):
                         modButton.setIcon('/usr/lib/perl5/vendor_perl/5.22.3/auto/share/dist/manatools/'+module['icon'])
                         modButton.setStretchable(0, True)
                         modButton.setStretchable(1, True)
-                        module['widget'] = modButton
-                        #self._categories.append(category)
+                        self._modules[i]['widget'] = modButton
 
                         #Add the command to the button
-                        ev = self.eventManager.addWidgetEvent(modButton, self.onModuleSelected, True)
+                        self.eventManager.addWidgetEvent(modButton, self.onModuleSelected, True)
+                    i += 1
                 break
         self.myReplacePoint.showChild()
 

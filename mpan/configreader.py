@@ -19,9 +19,7 @@ class ConfigReader():
                         mod_dict[elem.tag] = elem.text
                 modules.append(mod_dict)
                 not_title= True
-            icon=""
-            if category.find('icon'):
-                icon = category.find('icon').text
+            icon=category.find('icon').text
             self.categories.append({'title':category.find('title').text,
                                     'icon':icon,
                                     'modules':modules,

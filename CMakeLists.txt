@@ -46,9 +46,9 @@ set(CMAKE_INSTALL_LOCALEDIR "${CMAKE_INSTALL_DATAROOTDIR}/locale")
 set(CONFIG_FILES "/etc/mpan")
 
 # Build and install translations
- #if(GETTEXT_FOUND)
-# 	add_subdirectory(po)
- #endif(GETTEXT_FOUND)
+ if(GETTEXT_FOUND)
+	add_subdirectory(po)
+ endif(GETTEXT_FOUND)
 
 # Installing application code
 install(PROGRAMS ${CMAKE_SOURCE_DIR}/mpan/mpan DESTINATION ${CMAKE_INSTALL_BINDIR})

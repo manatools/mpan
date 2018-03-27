@@ -1,0 +1,116 @@
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
+# This file is distributed under the same license as the PACKAGE package.
+#
+# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# Jiří Vírava <appukonrad@gmail.com>, 2015-2016
+# Luděk Janča <joelp@email.cz>, 2016
+# fri, 2015
+# fri, 2015-2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Mageia\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-25 19:16+0200\n"
+"PO-Revision-Date: 2016-06-11 21:18+0000\n"
+"Last-Translator: fri\n"
+"Language-Team: Czech (http://www.transifex.com/MageiaLinux/mageia/language/"
+"cs/)\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: conf/categories.conf.in.h:1
+msgid "Software Management"
+msgstr "Správa softwaru"
+
+#: conf/categories.conf.in.h:2
+msgid "Install and Remove Software"
+msgstr "Instalovat a odebírat software"
+
+#: conf/categories.conf.in.h:3
+msgid "Update your System"
+msgstr "Aktualizovat systém"
+
+#: conf/categories.conf.in.h:4
+msgid "Configure media sources for install and update"
+msgstr "Nastavit zdroje softwaru pro instalaci a aktualizaci"
+
+#: conf/categories.conf.in.h:5
+msgid "System"
+msgstr "Systém"
+
+#: conf/categories.conf.in.h:6
+msgid "Network &amp;&amp; Internet"
+msgstr "Síť a internet"
+
+#: conf/categories.conf.in.h:7
+msgid "Security"
+msgstr "Bezpečnost"
+
+#: conf/categories.conf.in.h:8
+msgid "Boot"
+msgstr "Zavádění systému"
+
+#: extras/mpan.desktop.in.h:1
+msgid "mpan - Mageia ManaTools Control Panel"
+msgstr "mpan - Ovládací panel ManaTools Mageii"
+
+#: extras/mpan.desktop.in.h:2
+msgid "ManaTools panel - application launcher"
+msgstr "Panel ManaTools - Spouštěč programů"
+
+#: mpan/mpan:40
+msgid "System mode"
+msgstr ""
+
+#: mpan/mpan:42
+msgid "User mode"
+msgstr ""
+
+#: mpan/mpan:43
+msgid "ManaTools panel"
+msgstr ""
+
+#: mpan/mpan:64
+msgid "Manatools panel - {}"
+msgstr ""
+
+#: mpan/mpan:79
+msgid "Categories"
+msgstr "Skupiny"
+
+#: mpan/mpan:86
+msgid "File"
+msgstr "Soubor"
+
+#: mpan/mpan:87 mpan/mpan:124
+msgid "Quit"
+msgstr ""
+
+#: mpan/mpan:91
+msgid "Help"
+msgstr "Nápověda"
+
+#: mpan/mpan:92
+msgid "About"
+msgstr ""
+
+#: mpan/mpan:146
+msgid ""
+"Manatools panel provides an interface for launching modules which are part "
+"of the manatools."
+msgstr ""
+
+#~ msgid "_: Translator(s) name(s) & email(s)\n"
+#~ msgstr ""
+#~ "Michal Bukovjan <bukm@centrum.cz>\n"
+#~ "Pavel Fric <pavelfric@seznam.cz>\n"

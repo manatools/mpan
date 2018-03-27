@@ -1,0 +1,103 @@
+# Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Marek Laane <qiilaq69@gmail.com>, 2015, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: ManaTools 1.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-25 19:16+0200\n"
+"PO-Revision-Date: 2016-06-12 08:23+0300\n"
+"Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
+"Language-Team: Estonian <i18n-et@ml.mageia.org>\n"
+"Language: et\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.5\n"
+
+#: conf/categories.conf.in.h:1
+msgid "Software Management"
+msgstr "Tarkvarahaldur"
+
+#: conf/categories.conf.in.h:2
+msgid "Install and Remove Software"
+msgstr "Tarkvara paigaldamine ja eemaldamine"
+
+#: conf/categories.conf.in.h:3
+msgid "Update your System"
+msgstr "Süsteemi uuendamine"
+
+#: conf/categories.conf.in.h:4
+msgid "Configure media sources for install and update"
+msgstr "Andmeallikate seadistamine tarkvara paigaldamiseks ja uuendamiseks"
+
+#: conf/categories.conf.in.h:5
+msgid "System"
+msgstr "Süsteem"
+
+#: conf/categories.conf.in.h:6
+msgid "Network &amp;&amp; Internet"
+msgstr "Võrk &amp;&amp; internet"
+
+#: conf/categories.conf.in.h:7
+msgid "Security"
+msgstr "Turve"
+
+#: conf/categories.conf.in.h:8
+msgid "Boot"
+msgstr "Algkäivitus"
+
+#: extras/mpan.desktop.in.h:1
+msgid "mpan - Mageia ManaTools Control Panel"
+msgstr "mpan - Mageia ManaToolsi juhtimispaneel"
+
+#: extras/mpan.desktop.in.h:2
+msgid "ManaTools panel - application launcher"
+msgstr "ManaToolsi paneel - rakenduste käivitaja"
+
+#: mpan/mpan:40
+msgid "System mode"
+msgstr ""
+
+#: mpan/mpan:42
+msgid "User mode"
+msgstr ""
+
+#: mpan/mpan:43
+msgid "ManaTools panel"
+msgstr ""
+
+#: mpan/mpan:64
+msgid "Manatools panel - {}"
+msgstr ""
+
+#: mpan/mpan:79
+msgid "Categories"
+msgstr "Kategooriad"
+
+#: mpan/mpan:86
+msgid "File"
+msgstr "Fail"
+
+#: mpan/mpan:87 mpan/mpan:124
+msgid "Quit"
+msgstr "Välju"
+
+#: mpan/mpan:91
+msgid "Help"
+msgstr "Abi"
+
+#: mpan/mpan:92
+msgid "About"
+msgstr ""
+
+#: mpan/mpan:146
+msgid ""
+"Manatools panel provides an interface for launching modules which are part "
+"of the manatools."
+msgstr ""
+
+#~ msgid "_: Translator(s) name(s) & email(s)\n"
+#~ msgstr "Marek Laane <qiilaq69@gmail.com>\n"

@@ -1,0 +1,115 @@
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.7)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
+# This file is distributed under the same license as the ManaTools package.
+#
+# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# Marcio Andre Padula <padula1000@gmail.com>, 2015-2017
+# Michael Martins <michaelfm21@gmail.com>, 2017
+# Rodrigo de Almeida Sottomaior Macedo <rmsolucoeseminformatic4@gmail.com>, 2015-2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Mageia\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-25 19:16+0200\n"
+"PO-Revision-Date: 2017-09-23 16:38+0000\n"
+"Last-Translator: Marcio Andre Padula <padula1000@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/MageiaLinux/"
+"mageia/language/pt_BR/)\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: conf/categories.conf.in.h:1
+msgid "Software Management"
+msgstr "Gerenciamento de Software"
+
+#: conf/categories.conf.in.h:2
+msgid "Install and Remove Software"
+msgstr "Instalar e Remover Software"
+
+#: conf/categories.conf.in.h:3
+msgid "Update your System"
+msgstr "Atualizar seu Sistema"
+
+#: conf/categories.conf.in.h:4
+msgid "Configure media sources for install and update"
+msgstr "Configurar Mídias para Atualização e Instalação de Novos Programas"
+
+#: conf/categories.conf.in.h:5
+msgid "System"
+msgstr "Sistema"
+
+#: conf/categories.conf.in.h:6
+msgid "Network &amp;&amp; Internet"
+msgstr "Rede & Internet"
+
+#: conf/categories.conf.in.h:7
+msgid "Security"
+msgstr "Segurânça"
+
+#: conf/categories.conf.in.h:8
+msgid "Boot"
+msgstr "Boot"
+
+#: extras/mpan.desktop.in.h:1
+msgid "mpan - Mageia ManaTools Control Panel"
+msgstr "mpan - Painel de Controle Mageia ManaTools"
+
+#: extras/mpan.desktop.in.h:2
+msgid "ManaTools panel - application launcher"
+msgstr "Painel ManaTools - Lançador de Aplicação"
+
+#: mpan/mpan:40
+msgid "System mode"
+msgstr ""
+
+#: mpan/mpan:42
+msgid "User mode"
+msgstr ""
+
+#: mpan/mpan:43
+msgid "ManaTools panel"
+msgstr ""
+
+#: mpan/mpan:64
+msgid "Manatools panel - {}"
+msgstr ""
+
+#: mpan/mpan:79
+msgid "Categories"
+msgstr "Categorias"
+
+#: mpan/mpan:86
+msgid "File"
+msgstr "Arquivo"
+
+#: mpan/mpan:87 mpan/mpan:124
+msgid "Quit"
+msgstr ""
+
+#: mpan/mpan:91
+msgid "Help"
+msgstr "Ajuda"
+
+#: mpan/mpan:92
+msgid "About"
+msgstr ""
+
+#: mpan/mpan:146
+msgid ""
+"Manatools panel provides an interface for launching modules which are part "
+"of the manatools."
+msgstr ""
+
+#~ msgid "_: Translator(s) name(s) & email(s)\n"
+#~ msgstr ""
+#~ "Marcio Andre Padula <padula1000@gmail.com>\n"
+#~ "Michael Martins <michaelfm21@gmail.com>\n"

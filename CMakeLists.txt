@@ -41,17 +41,22 @@ set(USE_COMPS "False")
 # Set install dirs.
 set(CMAKE_INSTALL_BINDIR "${CMAKE_INSTALL_PREFIX}/bin")
 set(CMAKE_INSTALL_DATAROOTDIR "${CMAKE_INSTALL_PREFIX}/share")
+set(CMAKE_INSTALL_IMAGESROOTDIR "${CMAKE_INSTALL_PREFIX}/share/icons/manatools")
 set(CMAKE_INSTALL_LOCALEDIR "${CMAKE_INSTALL_DATAROOTDIR}/locale")
-set(CONFIG_FILES "/etc/manatools/mpan")
+set(CONFIG_FILES "/etc/mpan")
 
 # Build and install translations
-# if(GETTEXT_FOUND)
+ #if(GETTEXT_FOUND)
 # 	add_subdirectory(po)
-# endif(GETTEXT_FOUND)
+ #endif(GETTEXT_FOUND)
 
 # Installing application code
 install(PROGRAMS ${CMAKE_SOURCE_DIR}/mpan/mpan DESTINATION ${CMAKE_INSTALL_BINDIR})
 install(PROGRAMS ${CMAKE_SOURCE_DIR}/mpan/configreader.py DESTINATION ${PYTHON_INSTALL_DIR})
 install(FILES ${CMAKE_SOURCE_DIR}/conf/categories.conf DESTINATION ${CONFIG_FILES})
+install(FILES ${CMAKE_SOURCE_DIR}/conf/mpan.yaml DESTINATION ${CONFIG_FILES})
+# Installing icons
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/extras/images DESTINATION ${CMAKE_INSTALL_IMAGESROOTDIR})
+
 
 # install(FILES ${CMAKE_SOURCE_DIR}/extras/mpan.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)

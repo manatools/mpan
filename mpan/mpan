@@ -22,6 +22,7 @@
 
 import manatools.ui.common as common
 import manatools.ui.basedialog as basedialog
+import manatools.config as config
 import yui
 import gettext
 import os, glob
@@ -61,7 +62,10 @@ class MpDialog(basedialog.BaseDialog):
         self._categories = []
         self._modules = []
         self.dialog = basedialog.BaseDialog.__init__(self, _("Manatools panel - {}").format(space), "", basedialog.DialogType.POPUP, 100, 20)
-
+        # Load configuration
+        configuration = config.AppConfig('mpan')
+        self.params = configuration.systemSettings
+        self.iconsPath = self.params['Theme']['path']
 
     def UIlayout(self, layout):
         '''
@@ -105,7 +109,7 @@ class MpDialog(basedialog.BaseDialog):
                 #logo 
                 #TODO from settings
                 # fix the path
-        logofile = '/usr/lib/perl5/vendor_perl/5.22.3/auto/share/dist/manatools/images/logo_mageia.png'
+        logofile = os.path.join(self.iconsPath, 'images','logo_mageia.png')
 
         myLogo = self.factory.createImage(self.leftPane, logofile)
         myLogo.setAutoScale(True)
@@ -119,8 +123,7 @@ class MpDialog(basedialog.BaseDialog):
         #Fix the path
         closeButton = self.factory.createPushButton(bottomLayout, _("Quit"))
         self.eventManager.addWidgetEvent(closeButton, self.onQuitEvent)
-        quitIcon =  '/usr/lib/perl5/vendor_perl/5.22.3/auto/share/dist/manatools/images/quit.png'
-        closeButton.setIcon(quitIcon)
+        closeButton.setIcon(os.path.join(self.iconsPath,'images','quit.png'))
 
      # End Dialog layout
 
@@ -170,7 +173,7 @@ class MpDialog(basedialog.BaseDialog):
                         else:
                             modButton = self.factory.createPushButton(rpvbox2,module['title'])
                         side = not side
-                        modButton.setIcon('/usr/lib/perl5/vendor_perl/5.22.3/auto/share/dist/manatools/'+module['icon'])
+                        modButton.setIcon(os.path.join(self.iconsPath, module['icon']))
                         modButton.setStretchable(0, True)
                         modButton.setStretchable(1, True)
                         self._modules[i]['widget'] = modButton
@@ -188,11 +191,11 @@ class MpDialog(basedialog.BaseDialog):
         '''
         # category files
         #TODO Use common module to provide config directory
-        configPathName = "/etc/manatools/mpan"
-        fileName = configPathName + "/categories.conf"
+        configPathName = "/etc/mpan"
+        fileName = os.path.join(configPathName , "categories.conf")
 
         # configuration file dir
-        directory = configPathName +  "/categories.conf.d"
+        directory = os.path.join(configPathName ,  "categories.conf.d")
 
         categoryFiles = [fileName]
         l = glob.glob(os.path.join(directory,"*.conf"))
@@ -207,11 +210,6 @@ class MpDialog(basedialog.BaseDialog):
             for tmp in categories:
                 tmp['title'] = _(tmp['title'])
                 # debug             $self->D("Load categories: title content is <<%s>>", $title);
-                #TODO Manage icon
-                #if (defined($icon) && (substr( $icon, 0, 1) ne '/')) {
-                    ## icon with relative path?
-                    #$icon = File::ShareDir::dist_file(ManaTools::Shared::distName(), $tmp->{icon});
-                #}
                 tmpCat = self._getCategory(tmp['title'])
                 if (tmpCat == None) :
                     tmpCat = self._loadCategory(tmp)
@@ -306,7 +304,7 @@ class MpDialog(basedialog.BaseDialog):
         '''
         if (not self.catLoaded(category)):
             catButton = self.factory.createPushButton(self.leftPane,category['title'])
-            catButton.setIcon('/usr/lib/perl5/vendor_perl/5.22.3/auto/share/dist/manatools/'+category['icon'])
+            catButton.setIcon(os.path.join(self.iconsPath, category['icon']))
             catButton.setStretchable(0, True)
             category['widget'] = catButton
             self._categories.append(category)

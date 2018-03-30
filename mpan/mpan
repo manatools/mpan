@@ -363,7 +363,7 @@ class MpDialog(basedialog.BaseDialog):
         return self.selectedModule, self.selectedModuleClass, self.selectedLauncher
 
 if __name__ == '__main__':
-    gettext.install('python-manatools', localedir='/usr/share/locale')
+    gettext.install('mpan', localedir='/usr/share/locale')
     while True:
         mp = MpDialog()
         mod, modclass,launcher = mp.run()

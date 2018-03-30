@@ -339,8 +339,9 @@ class MpDialog(basedialog.BaseDialog):
                     elif "class" in module.keys() :
                         words = module['class'].split('.')
                         self.selectedModule = words[0]
-                        words.pop(0)
-                        self.selectedModuleClass = '.'.join(words)
+                        for i in range(1, len(words)-1):
+                            self.selectedModule = '{0}.{1}'.format(self.selectedModule, words[i])
+                        self.selectedModuleClass = words[-1]
                     self.ExitLoop()
 
     def run(self):

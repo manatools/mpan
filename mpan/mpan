@@ -371,12 +371,14 @@ if __name__ == '__main__':
         if mod:
             if modclass :
                 try:
+                    print(mod, modclass)
                     module = importlib.import_module(mod)
                     app = eval("module.%s()"%modclass)
                     app.run()
                     print("Exited module %s"%modclass)
-                except:
+                except Exception as e:
                     print("Exited module %s abnormally"%modclass)
+                    print(str(e))
             else:
                 os.system("pkexec %s"%launcher)
         else:

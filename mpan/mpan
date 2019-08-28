@@ -40,7 +40,7 @@ logger = logging.getLogger("mpan")
 logger.setLevel(logging.INFO)
 
 class MpDialog(basedialog.BaseDialog):
-    def __init__(self):
+    def __init__(self, init_cat):
         if os.getuid() == 0 :
             space = _("System mode")
         else :
@@ -65,6 +65,7 @@ class MpDialog(basedialog.BaseDialog):
         widget: the push button widget
         '''
         self._categories = []
+        self.init_cat = init_cat
         self._modules = []
         self.dialog = basedialog.BaseDialog.__init__(self, _("Manatools panel - {}").format(space), "", basedialog.DialogType.POPUP, 100, 20)
         # Load configuration
@@ -85,6 +86,7 @@ class MpDialog(basedialog.BaseDialog):
         self.selectedModule = ""
         self.selectedLauncher = ""
         self.selectedModuleClass = ""
+        self.selectedCategory = ""
         
         self.settings = {'title':self._application_name,'category_title':_("Categories")}
         self.title = self.settings['title']
@@ -238,6 +240,11 @@ class MpDialog(basedialog.BaseDialog):
                         pass
                 
             # Set the active category as the first one
+        if self.init_cat:
+            for category in self._categories:
+                if category['title'] == self.init_cat:
+                    category['active'] = True
+        else:
             self._categories[0]['active'] = True
 
     def catLoaded(self, category):
@@ -344,6 +351,9 @@ class MpDialog(basedialog.BaseDialog):
             self._modules.append(module)
 
     def onModuleSelected(self, button):
+            for i in range(0, len(self._categories)):
+                if self._categories[i]['active'] == True:
+                    self.selectedCategory = self._categories[i]['title']
             for module in self._modules :
                 if (module['widget'] == button) :
                     logging.info("You chose module <<%s>>"%module['title'])
@@ -377,13 +387,14 @@ class MpDialog(basedialog.BaseDialog):
 
         self.dialog.destroy()
         self.dialog = None
-        return self.selectedModule, self.selectedModuleClass, self.selectedLauncher
+        return self.selectedModule, self.selectedModuleClass, self.selectedLauncher, self.selectedCategory
 
 if __name__ == '__main__':
     gettext.install('mpan', localedir='/usr/share/locale')
+    cat = None
     while True:
-        mp = MpDialog()
-        mod, modclass,launcher = mp.run()
+        mp = MpDialog(cat)
+        mod, modclass, launcher, cat = mp.run()
         if mod:
             if modclass :
                 try:

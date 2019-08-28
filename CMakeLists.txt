@@ -45,7 +45,7 @@ set(USE_COMPS "False")
 # Set install dirs.
 set(CMAKE_INSTALL_BINDIR "${CMAKE_INSTALL_PREFIX}/bin")
 set(CMAKE_INSTALL_DATAROOTDIR "${CMAKE_INSTALL_PREFIX}/share")
-set(CMAKE_INSTALL_IMAGESROOTDIR "${CMAKE_INSTALL_PREFIX}/share/icons/manatools")
+set(CMAKE_INSTALL_IMAGESROOTDIR "${CMAKE_INSTALL_PREFIX}/share/icons/manatools/images")
 set(CMAKE_INSTALL_LOCALEDIR "${CMAKE_INSTALL_DATAROOTDIR}/locale")
 set(CONFIG_FILES "/etc/mpan")
 set(CONFIG_FILES_SUBDIR "/etc/mpan/categories.conf.d")
@@ -59,7 +59,7 @@ set(CONFIG_FILES_SUBDIR "/etc/mpan/categories.conf.d")
 install(PROGRAMS ${CMAKE_SOURCE_DIR}/mpan/mpan DESTINATION ${CMAKE_INSTALL_BINDIR})
 install(PROGRAMS ${CMAKE_SOURCE_DIR}/mpan/configreader.py DESTINATION ${PYTHON_INSTALL_DIR})
 install(FILES ${CMAKE_SOURCE_DIR}/conf/categories.conf DESTINATION ${CONFIG_FILES})
-install(FILES ${CMAKE_SOURCE_DIR}/conf/mpan.yaml DESTINATION ${CONFIG_FILES})
+
 
 # Installing additional configuration files (provisional as manatools is still a whole)
 install(FILES ${CMAKE_SOURCE_DIR}/conf/dnfdragora.conf DESTINATION ${CONFIG_FILES_SUBDIR})
@@ -75,5 +75,8 @@ install(FILES ${CMAKE_SOURCE_DIR}/conf/manawall.conf DESTINATION ${CONFIG_FILES_
 # Installing icons
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/extras/images DESTINATION ${CMAKE_INSTALL_IMAGESROOTDIR})
 
+# Buils configuration file
+file(WRITE mpan.yaml "log_level : debug\nTheme :\n\tpath : "${CMAKE_INSTALL_IMAGESROOTDIR})
+install(FILES mpan.yaml DESTINATION ${CONFIG_FILES})
 
 # install(FILES ${CMAKE_SOURCE_DIR}/extras/mpan.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)

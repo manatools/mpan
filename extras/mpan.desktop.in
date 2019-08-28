@@ -1,0 +1,8 @@
+[Desktop Entry]
+_Name=mpan - Mageia ManaTools Control Panel
+_Comment=ManaTools panel - application launcher
+Exec=mpan
+Icon=/usr/share/icons/mpan.png
+Type=Application
+StartupNotify=true
+Categories=System;X-MandrivaLinux-CrossDesktop;

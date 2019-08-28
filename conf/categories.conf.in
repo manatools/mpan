@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<categories>
+  <category>
+    <_title >Software Management</_title>
+    <icon>images/mpan/applications_section.png</icon>
+    <module>
+      <_title >Install and Remove Software</_title>
+      <launcher>/usr/bin/rpmdragora</launcher>
+      <icon>images/rpmdragora/_title-install.png</icon>
+    </module>
+    <module>
+      <_title>Update your System</_title>
+      <launcher>/usr/bin/dragoraUpdate</launcher>
+      <icon>images/rpmdragora/_title-update.png</icon>
+    </module>
+    <module>
+      <_title>Configure media sources for install and update</_title>
+      <launcher>/usr/bin/dragora-urpm-sources.pl</launcher>
+      <icon>images/rpmdragora/dragora-urpm-sources.png</icon>
+    </module>
+  </category>
+  <category>
+    <_title>System</_title>
+    <icon>images/mpan/system_section.png</icon>
+  </category>
+  <category>
+    <_title>Network &amp;&amp; Internet</_title>
+    <icon>images/mpan/networking_section.png</icon>
+  </category>
+  <category>
+    <_title >Security</_title>
+    <icon>images/mpan/security_section.png</icon>
+  </category>
+  <category>
+    <_title>Boot</_title>
+    <icon>images/mpan/boot_init_section.png</icon>
+  </category>
+</categories>

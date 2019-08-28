@@ -1,0 +1,10 @@
+<?xml version='1.0'?>
+<categories>
+  <category>
+    <title xml:lang="en">System</title>
+    <icon>images/mpan/system_section.png</icon>
+    <module>
+      <launcher>mana service</launcher>
+    </module>
+  </category>
+</categories>

@@ -33,6 +33,10 @@ if(CHECK_RUNTIME_DEPENDENCIES)
 	find_python_module(os REQUIRED)
 	
 	find_python_module(glob REQUIRED)
+	
+	find_python_module(logging REQUIRED)
+	
+	find_python_module(gettext REQUIRED)
 
 endif(CHECK_RUNTIME_DEPENDENCIES)
 
@@ -44,6 +48,7 @@ set(CMAKE_INSTALL_DATAROOTDIR "${CMAKE_INSTALL_PREFIX}/share")
 set(CMAKE_INSTALL_IMAGESROOTDIR "${CMAKE_INSTALL_PREFIX}/share/icons/manatools")
 set(CMAKE_INSTALL_LOCALEDIR "${CMAKE_INSTALL_DATAROOTDIR}/locale")
 set(CONFIG_FILES "/etc/mpan")
+set(CONFIG_FILES_SUBDIR "/etc/mpan/categories.conf.d")
 
 # Build and install translations
  if(GETTEXT_FOUND)
@@ -55,6 +60,18 @@ install(PROGRAMS ${CMAKE_SOURCE_DIR}/mpan/mpan DESTINATION ${CMAKE_INSTALL_BINDI
 install(PROGRAMS ${CMAKE_SOURCE_DIR}/mpan/configreader.py DESTINATION ${PYTHON_INSTALL_DIR})
 install(FILES ${CMAKE_SOURCE_DIR}/conf/categories.conf DESTINATION ${CONFIG_FILES})
 install(FILES ${CMAKE_SOURCE_DIR}/conf/mpan.yaml DESTINATION ${CONFIG_FILES})
+
+# Installing additional configuration files (provisional as manatools is still a whole)
+install(FILES ${CMAKE_SOURCE_DIR}/conf/dnfdragora.conf DESTINATION ${CONFIG_FILES_SUBDIR})
+install(FILES ${CMAKE_SOURCE_DIR}/conf/manaproxy.conf DESTINATION ${CONFIG_FILES_SUBDIR})
+install(FILES ${CMAKE_SOURCE_DIR}/conf/manadm.conf DESTINATION ${CONFIG_FILES_SUBDIR})
+install(FILES ${CMAKE_SOURCE_DIR}/conf/manaadduser.conf DESTINATION ${CONFIG_FILES_SUBDIR})
+install(FILES ${CMAKE_SOURCE_DIR}/conf/manauser.conf DESTINATION ${CONFIG_FILES_SUBDIR})
+install(FILES ${CMAKE_SOURCE_DIR}/conf/manaservice.conf DESTINATION ${CONFIG_FILES_SUBDIR})
+install(FILES ${CMAKE_SOURCE_DIR}/conf/manahost.conf DESTINATION ${CONFIG_FILES_SUBDIR})
+install(FILES ${CMAKE_SOURCE_DIR}/conf/manaclock.conf DESTINATION ${CONFIG_FILES_SUBDIR})
+install(FILES ${CMAKE_SOURCE_DIR}/conf/manawall.conf DESTINATION ${CONFIG_FILES_SUBDIR})
+
 # Installing icons
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/extras/images DESTINATION ${CMAKE_INSTALL_IMAGESROOTDIR})
 

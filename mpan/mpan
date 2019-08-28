@@ -28,11 +28,16 @@ import gettext
 import os, glob
 import configreader
 import importlib
+import logging
+
 ######################################################################
 ## 
 ##  Mpan
 ## 
 ######################################################################
+
+logger = logging.getLogger("mpan")
+logger.setLevel(logging.INFO)
 
 class MpDialog(basedialog.BaseDialog):
     def __init__(self):
@@ -66,6 +71,11 @@ class MpDialog(basedialog.BaseDialog):
         configuration = config.AppConfig('mpan')
         self.params = configuration.systemSettings
         self.iconsPath = self.params['Theme']['path']
+        try:
+            log_lvl = getattr(logging, self.params['log_level'].upper())
+        except:
+            log_lvl = logging.WARNING
+        logging.basicConfig(filename='mpan.log', format='%(asctime)s [%(name)s](%(levelname)s) %(message)s',level=log_lvl)
 
     def UIlayout(self, layout):
         '''
@@ -98,7 +108,10 @@ class MpDialog(basedialog.BaseDialog):
         #create left Panel Frame no need to add a label for title
         leftPaneFrame = self.factory.createFrame(mylayout, self.settings['category_title'])
         #create right Panel Frame no need to add a label for title (use setLabel when module changes)
-        self.rightPaneFrame = self.factory.createFrame(mylayout, "")
+        rpvbox =  self.factory.createVBox(mylayout)
+        bannerfile = os.path.join(self.iconsPath, 'images','banner.png')
+        self.factory.createImage(rpvbox,bannerfile, False)
+        self.rightPaneFrame = self.factory.createFrame(rpvbox, "")
         bottomLayout =  self.factory.createHBox(mainLayout)
 
             #create replace point for dynamically created widgets
@@ -124,7 +137,7 @@ class MpDialog(basedialog.BaseDialog):
         closeButton = self.factory.createPushButton(bottomLayout, _("Quit"))
         self.eventManager.addWidgetEvent(closeButton, self.onQuitEvent)
         closeButton.setIcon(os.path.join(self.iconsPath,'images','quit.png'))
-
+        
      # End Dialog layout
 
     def onCancelEvent(self) :
@@ -157,22 +170,22 @@ class MpDialog(basedialog.BaseDialog):
             #TODO unload displayed modules
             self.rightPane.deleteChildren()
         #scan categories to find the category which is active
+        # Clean ReplacePoint
+        while self.myReplacePoint.hasChildren() :
+            self.myReplacePoint.deleteChildren()
+        self.rightPane = self.factory.createHBox(self.myReplacePoint)
         for category in self._categories:
             if category['active']:
                 # Refresh the title with the selected category's name
                 self.rightPaneFrame .setLabel(category['title'])
                 # Module's buttons are dispatched in two columns
                 rpvbox1 = self.factory.createVBox(self.rightPane)
-                rpvbox2 =  self.factory.createVBox(self.rightPane)
+                rpvbox1.setSize(50, 70)
                 side = True
                 i = 0
                 for module in self._modules :
                     if module['category'] == category['widget'] :
-                        if side:
-                            modButton = self.factory.createPushButton(rpvbox1,module['title'])                            
-                        else:
-                            modButton = self.factory.createPushButton(rpvbox2,module['title'])
-                        side = not side
+                        modButton = self.factory.createPushButton(rpvbox1,module['title'])  
                         modButton.setIcon(os.path.join(self.iconsPath, module['icon']))
                         modButton.setStretchable(0, True)
                         modButton.setStretchable(1, True)
@@ -183,6 +196,7 @@ class MpDialog(basedialog.BaseDialog):
                     i += 1
                 break
         self.myReplacePoint.showChild()
+        self.dialog.recalcLayout()
 
     def loadFiles(self):
         '''
@@ -203,13 +217,13 @@ class MpDialog(basedialog.BaseDialog):
             if os.path.isfile(i) : categoryFiles.append(i)
 
         for fileName in categoryFiles :
-            print("Parsing category file %s"% fileName)
+            logging.info("Parsing category file %s"% fileName)
             inFile = configreader.ConfigReader(fileName)
             categories = inFile.read()
             tmpCat = ""
             for tmp in categories:
                 tmp['title'] = _(tmp['title'])
-                # debug             $self->D("Load categories: title content is <<%s>>", $title);
+                logging.debug("Load categories: title content is << %s >>", tmp['title']);
                 tmpCat = self._getCategory(tmp['title'])
                 if (tmpCat == None) :
                     tmpCat = self._loadCategory(tmp)
@@ -317,7 +331,7 @@ class MpDialog(basedialog.BaseDialog):
         i = 0
         for category in self._categories :
             if (category['widget'] == button) :
-                print("You chose category <<%s>>"%category['title'])
+                logging.info("You chose category <<%s>>"%category['title'])
                 self._categories[i]['active'] = True
             else: 
                  self._categories[i]['active'] = False
@@ -332,7 +346,7 @@ class MpDialog(basedialog.BaseDialog):
     def onModuleSelected(self, button):
             for module in self._modules :
                 if (module['widget'] == button) :
-                    print("You chose module <<%s>>"%module['title'])
+                    logging.info("You chose module <<%s>>"%module['title'])
                     if "launcher" in module.keys() :
                         self.selectedModule = module['launcher'].split('/')[-1]
                         self.selectedLauncher = module['launcher']
@@ -350,10 +364,12 @@ class MpDialog(basedialog.BaseDialog):
         '''
         self.backupTitle = yui.YUI.app().applicationTitle()
         yui.YUI.app().setApplicationTitle(self._title)
+        logging.debug("starting")
 
         self._setupUI()
         
         self._running = True
+        logging.debug("Running")
         self._handleEvents()
 
         #restore old application title
@@ -371,14 +387,12 @@ if __name__ == '__main__':
         if mod:
             if modclass :
                 try:
-                    print(mod, modclass)
                     module = importlib.import_module(mod)
                     app = eval("module.%s()"%modclass)
                     app.run()
-                    print("Exited module %s"%modclass)
+                    logging.info("Exited module %s"%modclass)
                 except Exception as e:
-                    print("Exited module %s abnormally"%modclass)
-                    print(str(e))
+                   message = "Exited module {} abnormally : {}".format(modclass, str(e))
             else:
                 os.system("pkexec %s"%launcher)
         else:

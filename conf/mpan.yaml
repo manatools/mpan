@@ -1,2 +1,3 @@
 Theme :
     path : /usr/share/icons/manatools
+    log_level : debug

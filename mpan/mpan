@@ -374,6 +374,7 @@ class MpDialog(basedialog.BaseDialog):
         '''
         self.backupTitle = yui.YUI.app().applicationTitle()
         yui.YUI.app().setApplicationTitle(self._title)
+        yui.YUI.app().setApplicationIcon("/usr/share/icons/mpan.png")
         logging.debug("starting")
 
         self._setupUI()

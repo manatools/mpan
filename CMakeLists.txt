@@ -6,6 +6,7 @@ cmake_minimum_required(VERSION 3.7)
 
 project(mpan VERSION 0.1)
 
+include(GNUInstallDirs)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
 
 find_package(PythonInterp 3.4 REQUIRED)
@@ -47,8 +48,8 @@ set(CMAKE_INSTALL_BINDIR "${CMAKE_INSTALL_PREFIX}/bin")
 set(CMAKE_INSTALL_DATAROOTDIR "${CMAKE_INSTALL_PREFIX}/share")
 set(CMAKE_INSTALL_IMAGESROOTDIR "${CMAKE_INSTALL_PREFIX}/share/icons/manatools/images")
 set(CMAKE_INSTALL_LOCALEDIR "${CMAKE_INSTALL_DATAROOTDIR}/locale")
-set(CONFIG_FILES "/etc/mpan")
-set(CONFIG_FILES_SUBDIR "/etc/mpan/categories.conf.d")
+set(CONFIG_FILES "${CMAKE_INSTALL_FULL_SYSCONFDIR}/mpan")
+set(CONFIG_FILES_SUBDIR "${CONFIG_FILES}/categories.conf.d")
 
 # Build and install translations
  if(GETTEXT_FOUND)
@@ -73,7 +74,7 @@ install(FILES ${CMAKE_SOURCE_DIR}/conf/manaclock.conf DESTINATION ${CONFIG_FILES
 install(FILES ${CMAKE_SOURCE_DIR}/conf/manawall.conf DESTINATION ${CONFIG_FILES_SUBDIR})
 
 # Installing icons
-install(DIRECTORY ${CMAKE_SOURCE_DIR}/extras/images DESTINATION ${CMAKE_INSTALL_IMAGESROOTDIR})
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/extras/images DESTINATION ${CMAKE_INSTALL_IMAGESROOTDIR} )
 
 # Buils configuration file
 file(WRITE mpan.yaml "log_level : debug\nTheme :\n\tpath : "${CMAKE_INSTALL_IMAGESROOTDIR})

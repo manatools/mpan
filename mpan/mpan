@@ -200,10 +200,10 @@ class MpDialog(basedialog.BaseDialog):
                                 logging.info(f"Icon {module['icon']} doesn't exist" )
                         else:
                             logging.debug(f"Relative path for application icon: {module['icon']}" )
-                            if os.path.exists(module['icon']):
+                            if os.path.exists(os.path.join(self.iconsPath, module['icon'])):
                                 modButton.setIcon(os.path.join(self.iconsPath, module['icon']))
                             else:                              
-                                logging.info(f"Icon {module['icon']} doesn't exist" )
+                                logging.info(f"Icon {os.path.join(self.iconsPath, module['icon'])} doesn't exist" )
                         modButton.setStretchable(0, True)
                         modButton.setStretchable(1, True)
                         self._modules[i]['widget'] = modButton

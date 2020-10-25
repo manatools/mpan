@@ -25,10 +25,12 @@ import manatools.ui.basedialog as basedialog
 import manatools.config as config
 import yui
 import gettext
-import os, glob
-import configreader
+import os
+import glob
+import subprocess
 import importlib
 import logging
+from configreader import ConfigReader
 
 ######################################################################
 ## 
@@ -36,7 +38,7 @@ import logging
 ## 
 ######################################################################
 
-logger = logging.getLogger("mpan")
+logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 class MpDialog(basedialog.BaseDialog):
@@ -188,8 +190,20 @@ class MpDialog(basedialog.BaseDialog):
                 i = 0
                 for module in self._modules :
                     if module['category'] == category['widget'] :
-                        modButton = self.factory.createPushButton(rpvbox1,module['title'])  
-                        modButton.setIcon(os.path.join(self.iconsPath, module['icon']))
+                        modButton = self.factory.createPushButton(rpvbox1,module['title'])
+                        if module['icon'].startswith('/'):
+                            logging.debug(f"Absolute path for application icon: {module['icon']}" )
+                            # the icon path is absolute
+                            if os.path.exists(module['icon']):
+                                modButton.setIcon(module['icon'])
+                            else:                              
+                                logging.info(f"Icon {module['icon']} doesn't exist" )
+                        else:
+                            logging.debug(f"Relative path for application icon: {module['icon']}" )
+                            if os.path.exists(module['icon']):
+                                modButton.setIcon(os.path.join(self.iconsPath, module['icon']))
+                            else:                              
+                                logging.info(f"Icon {module['icon']} doesn't exist" )
                         modButton.setStretchable(0, True)
                         modButton.setStretchable(1, True)
                         self._modules[i]['widget'] = modButton
@@ -220,7 +234,7 @@ class MpDialog(basedialog.BaseDialog):
 
         for fileName in categoryFiles :
             logging.info("Parsing category file %s"% fileName)
-            inFile = configreader.ConfigReader(fileName)
+            inFile = ConfigReader(fileName)
             categories = inFile.read()
             tmpCat = ""
             for tmp in categories:
@@ -406,7 +420,7 @@ if __name__ == '__main__':
                 except Exception as e:
                    message = "Exited module {} abnormally : {}".format(modclass, str(e))
             else:
-                os.system("pkexec %s"%launcher)
+                os.system(launcher)
         else:
             break
         

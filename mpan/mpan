@@ -72,6 +72,7 @@ class MpDialog(basedialog.BaseDialog):
         configuration = config.AppConfig('mpan')
         self.params = configuration.systemSettings
         self.iconsPath = self.params['Theme']['path']
+        self.configPathName = self.params['Configuration']['path']
         try:
             log_lvl = getattr(logging, self.params['log_level'].upper())
         except:
@@ -207,11 +208,10 @@ class MpDialog(basedialog.BaseDialog):
         '''
         # category files
         #TODO Use common module to provide config directory
-        configPathName = "/etc/mpan"
-        fileName = os.path.join(configPathName , "categories.conf")
+        fileName = os.path.join(self.configPathName , "categories.conf")
 
         # configuration file dir
-        directory = os.path.join(configPathName ,  "categories.conf.d")
+        directory = os.path.join(self.configPathName ,  "categories.conf.d")
 
         categoryFiles = [fileName]
         l = glob.glob(os.path.join(directory,"*.conf"))

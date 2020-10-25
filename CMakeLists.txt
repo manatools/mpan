@@ -62,7 +62,7 @@ install(PROGRAMS ${CMAKE_SOURCE_DIR}/mpan/configreader.py DESTINATION ${PYTHON_I
 install(FILES ${CMAKE_SOURCE_DIR}/conf/categories.conf DESTINATION ${CONFIG_FILES})
 
 
-# Installing additional configuration files (provisional as manatools is still a whole)
+# Installing additional configuration files
 install(FILES ${CMAKE_SOURCE_DIR}/conf/dnfdragora.conf DESTINATION ${CONFIG_FILES_SUBDIR})
 install(FILES ${CMAKE_SOURCE_DIR}/conf/manaproxy.conf DESTINATION ${CONFIG_FILES_SUBDIR})
 install(FILES ${CMAKE_SOURCE_DIR}/conf/manadm.conf DESTINATION ${CONFIG_FILES_SUBDIR})
@@ -77,7 +77,7 @@ install(FILES ${CMAKE_SOURCE_DIR}/conf/manawall.conf DESTINATION ${CONFIG_FILES_
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/extras/images DESTINATION ${CMAKE_INSTALL_IMAGESROOTDIR} )
 
 # Buils configuration file
-file(WRITE mpan.yaml "log_level : debug\nTheme :\n\tpath : "${CMAKE_INSTALL_IMAGESROOTDIR})
-install(FILES mpan.yaml DESTINATION ${CONFIG_FILES})
+file(WRITE mpan.yaml "log_level : debug\nTheme :\n    path : ${CMAKE_INSTALL_IMAGESROOTDIR}\nConfiguration :\n    path : ${CONFIG_FILES}")
+install(FILES mpan.yaml DESTINATION "/etc/mpan")
 
 # install(FILES ${CMAKE_SOURCE_DIR}/extras/mpan.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)

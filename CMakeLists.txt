@@ -63,21 +63,13 @@ install(FILES ${CMAKE_SOURCE_DIR}/conf/categories.conf DESTINATION ${CONFIG_FILE
 
 
 # Installing additional configuration files
-install(FILES ${CMAKE_SOURCE_DIR}/conf/dnfdragora.conf DESTINATION ${CONFIG_FILES_SUBDIR})
-install(FILES ${CMAKE_SOURCE_DIR}/conf/manaproxy.conf DESTINATION ${CONFIG_FILES_SUBDIR})
-install(FILES ${CMAKE_SOURCE_DIR}/conf/manadm.conf DESTINATION ${CONFIG_FILES_SUBDIR})
-install(FILES ${CMAKE_SOURCE_DIR}/conf/manaadduser.conf DESTINATION ${CONFIG_FILES_SUBDIR})
-install(FILES ${CMAKE_SOURCE_DIR}/conf/manauser.conf DESTINATION ${CONFIG_FILES_SUBDIR})
-install(FILES ${CMAKE_SOURCE_DIR}/conf/manaservice.conf DESTINATION ${CONFIG_FILES_SUBDIR})
-install(FILES ${CMAKE_SOURCE_DIR}/conf/manahost.conf DESTINATION ${CONFIG_FILES_SUBDIR})
-install(FILES ${CMAKE_SOURCE_DIR}/conf/manaclock.conf DESTINATION ${CONFIG_FILES_SUBDIR})
-install(FILES ${CMAKE_SOURCE_DIR}/conf/manawall.conf DESTINATION ${CONFIG_FILES_SUBDIR})
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/conf/ DESTINATION ${CONFIG_FILES_SUBDIR})
 
 # Installing icons
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/extras/images DESTINATION ${CMAKE_INSTALL_IMAGESROOTDIR} )
 
 # Buils configuration file
-file(WRITE mpan.yaml "log_level : debug\nTheme :\n    path : ${CMAKE_INSTALL_IMAGESROOTDIR}\nConfiguration :\n    path : ${CONFIG_FILES}")
+file(WRITE mpan.yaml "log_level : debug\nTheme :\n    path : ${CMAKE_INSTALL_IMAGESROOTDIR},/usr/share/mcc/themes/default,/usr/lib/libDrakX/icons/\nConfiguration :\n    path : ${CONFIG_FILES}")
 install(FILES mpan.yaml DESTINATION "/etc/mpan")
 
 # install(FILES ${CMAKE_SOURCE_DIR}/extras/mpan.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)

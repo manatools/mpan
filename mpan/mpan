@@ -73,7 +73,7 @@ class MpDialog(basedialog.BaseDialog):
         # Load configuration
         configuration = config.AppConfig('mpan')
         self.params = configuration.systemSettings
-        self.iconsPath = self.params['Theme']['path']
+        self.iconsPath = self.params['Theme']['path'].split(',')
         self.configPathName = self.params['Configuration']['path']
         try:
             log_lvl = getattr(logging, self.params['log_level'].upper())
@@ -91,57 +91,63 @@ class MpDialog(basedialog.BaseDialog):
         self.selectedModuleClass = ""
         self.selectedCategory = ""
         
-        self.settings = {'title':self._application_name,'category_title':_("Categories")}
+        self.settings = {'title':self._application_name,'category_title':""}
         self.title = self.settings['title']
 
         mainLayout = self.factory.createVBox(layout)
-        menuLayout = self.factory.createHBox(mainLayout)
+        #menuLayout = self.factory.createHBox(mainLayout)
             ## Menu File
         # Let's test a Menu widget
-        menu1 = self.factory.createMenuButton(self.factory.createLeft(menuLayout), _("File"))
-        qm = yui.YMenuItem(_("Quit"))
-        menu1.addItem(qm)
-        menu1.rebuildMenuTree()
-        self.eventManager.addMenuEvent(qm, self.onQuitEvent)
-        menuHelp = self.factory.createMenuButton(self.factory.createRight(menuLayout), _("Help"))
-        qa = yui.YMenuItem(_("About"))
-        menuHelp.addItem(qa)
-        menuHelp.rebuildMenuTree()
-        self.eventManager.addMenuEvent(qa, self.onAboutEvent)
+        #menu1 = self.factory.createMenuButton(self.factory.createLeft(menuLayout), _("File"))
+        #qm = yui.YMenuItem(_("Quit"))
+        #menu1.addItem(qm)
+        #menu1.rebuildMenuTree()
+        #self.eventManager.addMenuEvent(qm, self.onQuitEvent)
 
+        bannerfile = os.path.join(self.iconsPath[0], 'images', 'Logo_big_dark.png')
+        background = os.path.join(self.iconsPath[0], 'images', 'background_dark.png')
+        bannerMinSize = self.factory.createMinSize(mainLayout, 60, 5)
+        bannerMinSize.setBackgroundPixmap(background)
+        center = self.factory.createHCenter(bannerMinSize)
+        self.factory.createImage(center, bannerfile)
         mylayout = self.factory.createHBox(mainLayout)
         #create left Panel Frame no need to add a label for title
-        leftPaneFrame = self.factory.createFrame(mylayout, self.settings['category_title'])
+        leftPanelMinSize = self.factory.createMinSize(mylayout, 40, 15)
         #create right Panel Frame no need to add a label for title (use setLabel when module changes)
-        rpvbox =  self.factory.createVBox(mylayout)
-        bannerfile = os.path.join(self.iconsPath, 'images','banner.png')
-        self.factory.createImage(rpvbox,bannerfile, False)
-        self.rightPaneFrame = self.factory.createFrame(rpvbox, "")
+        rpVbox =  self.factory.createVBox(mylayout)
+        rpMinSize = self.factory.createMinSize(rpVbox, 40, 15)
+        self.rightPaneFrame = self.factory.createFrame(rpMinSize, "")
         bottomLayout =  self.factory.createHBox(mainLayout)
 
             #create replace point for dynamically created widgets
         self.myReplacePoint = self.factory.createReplacePoint (self.rightPaneFrame)
         self.rightPane = self.factory.createHBox(self.myReplacePoint)
-        self.leftPane = self.factory.createVBox(leftPaneFrame)
+        #backgroundfile = "/usr/share/mcc/themes/default/left-background.png"
+        #leftPanelMinSize.setBackgroundPixmap(backgroundfile)
+        self.leftPane = self.factory.createVBox(leftPanelMinSize)
         
                 #logo 
                 #TODO from settings
                 # fix the path
-        logofile = os.path.join(self.iconsPath, 'images','logo_mageia.png')
 
-        myLogo = self.factory.createImage(self.leftPane, logofile)
-        myLogo.setAutoScale(True)
-        self.rightPaneFrame.setWeight(0, 2)
-
+        self.tree = self.factory.createTree(self.leftPane, '')
+        self.tree.setNotify(True)
+        self.tree.setWeight(0,1)
+        #Add the command to the tree
+        self.eventManager.addWidgetEvent(self.tree, self.onCategorySelected, True)
         self.loadFiles()
+        logging.debug('call refresh pane')
         self.refreshPane()
 
-        self.factory.createVStretch(self.leftPane)
-
-        #Fix the path
-        closeButton = self.factory.createPushButton(bottomLayout, _("Quit"))
+        menuHelp = self.factory.createMenuButton(bottomLayout, _("Help"))
+        qa = yui.YMenuItem(_("About"))
+        menuHelp.addItem(qa)
+        menuHelp.rebuildMenuTree()
+        self.eventManager.addMenuEvent(qa, self.onAboutEvent)
+        
+        closeButton = self.factory.createPushButton(self.factory.createRight(bottomLayout), _("Quit"))
         self.eventManager.addWidgetEvent(closeButton, self.onQuitEvent)
-        closeButton.setIcon(os.path.join(self.iconsPath,'images','quit.png'))
+        closeButton.setIcon(os.path.join(self.iconsPath[0],'images','quit.png'))
         
      # End Dialog layout
 
@@ -149,7 +155,7 @@ class MpDialog(basedialog.BaseDialog):
         print ("Got a cancel event")
 
     def onQuitEvent(self) :
-        print ("Quit button pressed")
+        logging.info("Quit button pressed")
         # BaseDialog needs to force to exit the handle event loop 
         self.ExitLoop()
 
@@ -158,13 +164,14 @@ class MpDialog(basedialog.BaseDialog):
             'name' : self._application_name,
             'dialog_mode' : common.AboutDialogMode.TABBED,
             'version' : "0.1.0",
-            'credits' :"Credits 2018 Papoteur",
+            'credits' :"Credits 2018-2020 Papoteur",
             'license' : 'GPLv3',
-            'authors' : 'Papoteur &lt;papoteur@mageialinux-online.org&gt;',
+            'authors' : 'Papoteur &lt;papoteur@mageia.org&gt;',
             'description' : _("Manatools panel provides an interface for launching modules which are part of the manatools."),
       })
 
     def refreshPane(self):
+        logging.debug('refreshPane')
         for i in range(0, len(self._modules)):
             if 'widget' in self._modules[i].keys():
                 if self._modules[i]['widget'] :
@@ -182,7 +189,7 @@ class MpDialog(basedialog.BaseDialog):
         for category in self._categories:
             if category['active']:
                 # Refresh the title with the selected category's name
-                self.rightPaneFrame .setLabel(category['title'])
+                self.rightPaneFrame.setLabel(category['title'])
                 # Module's buttons are dispatched in two columns
                 rpvbox1 = self.factory.createVBox(self.rightPane)
                 rpvbox1.setSize(50, 70)
@@ -191,19 +198,7 @@ class MpDialog(basedialog.BaseDialog):
                 for module in self._modules :
                     if module['category'] == category['widget'] :
                         modButton = self.factory.createPushButton(rpvbox1,module['title'])
-                        if module['icon'].startswith('/'):
-                            logging.debug(f"Absolute path for application icon: {module['icon']}" )
-                            # the icon path is absolute
-                            if os.path.exists(module['icon']):
-                                modButton.setIcon(module['icon'])
-                            else:                              
-                                logging.info(f"Icon {module['icon']} doesn't exist" )
-                        else:
-                            logging.debug(f"Relative path for application icon: {module['icon']}" )
-                            if os.path.exists(os.path.join(self.iconsPath, module['icon'])):
-                                modButton.setIcon(os.path.join(self.iconsPath, module['icon']))
-                            else:                              
-                                logging.info(f"Icon {os.path.join(self.iconsPath, module['icon'])} doesn't exist" )
+                        modButton.setIcon(self.fullIconPath(module['icon']))
                         modButton.setStretchable(0, True)
                         modButton.setStretchable(1, True)
                         self._modules[i]['widget'] = modButton
@@ -213,7 +208,9 @@ class MpDialog(basedialog.BaseDialog):
                     i += 1
                 break
         self.myReplacePoint.showChild()
+        logging.debug('recalc')
         self.dialog.recalcLayout()
+        logging.debug('End refresh')
 
     def loadFiles(self):
         '''
@@ -232,17 +229,24 @@ class MpDialog(basedialog.BaseDialog):
         for i in l:
             if os.path.isfile(i) : categoryFiles.append(i)
 
+        collection = yui.YItemCollection()
         for fileName in categoryFiles :
             logging.info("Parsing category file %s"% fileName)
             inFile = ConfigReader(fileName)
             categories = inFile.read()
-            tmpCat = ""
+            tmpCat = None
             for tmp in categories:
                 tmp['title'] = _(tmp['title'])
                 logging.debug("Load categories: title content is << %s >>", tmp['title']);
                 tmpCat = self._getCategory(tmp['title'])
                 if (tmpCat == None) :
-                    tmpCat = self._loadCategory(tmp)
+                    catItem = yui.YTreeItem( tmp['title'], self.fullIconPath(tmp['icon']))
+                    catItem.this.own(False)
+                    collection.push_back(catItem)
+                    tmp['widget'] = catItem
+                    self._categories.append(tmp)
+                    tmpCat = tmp
+                
                 for module in tmp['modules']:
                     if 'title' in module.keys():
                         module['title'] = _(module['title'])
@@ -252,8 +256,11 @@ class MpDialog(basedialog.BaseDialog):
                     elif 'class' in module.keys():
                         #TODO manage perl modules
                         pass
-                
-            # Set the active category as the first one
+                    
+        logging.debug("Building tree")
+        self.tree.addItems(collection)
+        logging.debug("End loadFiles")
+        # Set the active category as the first one
         if self.init_cat:
             for category in self._categories:
                 if category['title'] == self.init_cat:
@@ -261,6 +268,22 @@ class MpDialog(basedialog.BaseDialog):
         else:
             self._categories[0]['active'] = True
 
+    def fullIconPath(self, icon):
+        if icon.startswith('/'):
+            if os.path.exists(icon):
+                return icon
+            else:               
+                return ""
+        for path in self.iconsPath:
+            logging.debug(f"Relative path for application icon: {icon}" )
+            path = os.path.join(path, icon)
+            if os.path.exists(path):
+                return path
+            else:                              
+                logging.debug(f"Icon {path} doesn't exist" )
+            logging.info(f"Icon {icon} doesn't exist" )
+        return ""
+        
     def catLoaded(self, category):
         '''
         Look for a category passed as argument if present or not
@@ -348,10 +371,11 @@ class MpDialog(basedialog.BaseDialog):
             ev = self.eventManager.addWidgetEvent(catButton, self.onCategorySelected, True)
             return category
         
-    def onCategorySelected(self, button):
+    def onCategorySelected(self, widget):
         i = 0
+        item = self.tree.currentItem()
         for category in self._categories :
-            if (category['widget'] == button) :
+            if (category['widget'] == item) :
                 logging.info("You chose category <<%s>>"%category['title'])
                 self._categories[i]['active'] = True
             else: 

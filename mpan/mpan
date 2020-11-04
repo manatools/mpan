@@ -124,6 +124,8 @@ class MpDialog(basedialog.BaseDialog):
         self.rightPane = self.factory.createHBox(self.myReplacePoint)
         #backgroundfile = "/usr/share/mcc/themes/default/left-background.png"
         #leftPanelMinSize.setBackgroundPixmap(backgroundfile)
+        self.rightPaneList = self.factory.createSelectionBox(self.rightPane,"")
+        self.eventManager.addWidgetEvent(self.rightPaneList, self.onModuleSelected, True)
         self.leftPane = self.factory.createVBox(leftPanelMinSize)
         
                 #logo 
@@ -172,43 +174,32 @@ class MpDialog(basedialog.BaseDialog):
 
     def refreshPane(self):
         logging.debug('refreshPane')
+        #TODO Check that it is still useful
         for i in range(0, len(self._modules)):
             if 'widget' in self._modules[i].keys():
                 if self._modules[i]['widget'] :
-                    # Unload event
-                    self.eventManager.removeWidgetEvent(self._modules[i]['widget'], self.onModuleSelected)
                     self._modules[i]['widget'] = None
-        while self.rightPane.hasChildren() :
-            #TODO unload displayed modules
-            self.rightPane.deleteChildren()
-        #scan categories to find the category which is active
-        # Clean ReplacePoint
-        while self.myReplacePoint.hasChildren() :
-            self.myReplacePoint.deleteChildren()
-        self.rightPane = self.factory.createHBox(self.myReplacePoint)
+        collection = yui.YItemCollection()
         for category in self._categories:
             if category['active']:
                 # Refresh the title with the selected category's name
-                self.rightPaneFrame.setLabel(category['title'])
-                # Module's buttons are dispatched in two columns
+                logging.debug('refreshPane, in active category')
+                self.rightPaneList.deleteAllItems()
+                self.rightPaneList.setLabel(category['title'])
                 rpvbox1 = self.factory.createVBox(self.rightPane)
                 rpvbox1.setSize(50, 70)
-                side = True
                 i = 0
                 for module in self._modules :
                     if module['category'] == category['widget'] :
-                        modButton = self.factory.createPushButton(rpvbox1,module['title'])
-                        modButton.setIcon(self.fullIconPath(module['icon']))
-                        modButton.setStretchable(0, True)
-                        modButton.setStretchable(1, True)
+                        modButton = yui.YItem(module['title'], self.fullIconPath(module['icon']))
+                        modButton.this.own(False)
+                        collection.push_back(modButton)
                         self._modules[i]['widget'] = modButton
-
-                        #Add the command to the button
-                        self.eventManager.addWidgetEvent(modButton, self.onModuleSelected, True)
                     i += 1
                 break
+        self.rightPaneList.addItems(collection)
+        #Add the command to the list
         self.myReplacePoint.showChild()
-        logging.debug('recalc')
         self.dialog.recalcLayout()
         logging.debug('End refresh')
 
@@ -242,6 +233,8 @@ class MpDialog(basedialog.BaseDialog):
                 if (tmpCat == None) :
                     catItem = yui.YTreeItem( tmp['title'], self.fullIconPath(tmp['icon']))
                     catItem.this.own(False)
+                    #childItem = yui.YTreeItem( catItem, "Child", self.fullIconPath(tmp['icon']))
+                    #childItem.this.own(False)
                     collection.push_back(catItem)
                     tmp['widget'] = catItem
                     self._categories.append(tmp)
@@ -388,12 +381,13 @@ class MpDialog(basedialog.BaseDialog):
             module['category'] = category
             self._modules.append(module)
 
-    def onModuleSelected(self, button):
+    def onModuleSelected(self):
+            widget = self.rightPaneList.currentItem()
             for i in range(0, len(self._categories)):
                 if self._categories[i]['active'] == True:
                     self.selectedCategory = self._categories[i]['title']
             for module in self._modules :
-                if (module['widget'] == button) :
+                if (module['widget'] == widget) :
                     logging.info("You chose module <<%s>>"%module['title'])
                     if "launcher" in module.keys() :
                         self.selectedModule = module['launcher'].split('/')[-1]

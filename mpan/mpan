@@ -116,28 +116,25 @@ class MpDialog(basedialog.BaseDialog):
         #create right Panel Frame no need to add a label for title (use setLabel when module changes)
         rpVbox =  self.factory.createVBox(mylayout)
         rpMinSize = self.factory.createMinSize(rpVbox, 40, 15)
-        self.rightPaneFrame = self.factory.createFrame(rpMinSize, "")
         bottomLayout =  self.factory.createHBox(mainLayout)
 
-            #create replace point for dynamically created widgets
-        self.myReplacePoint = self.factory.createReplacePoint (self.rightPaneFrame)
-        self.rightPane = self.factory.createHBox(self.myReplacePoint)
+        self.rightPane = self.factory.createHBox(rpMinSize)
         #backgroundfile = "/usr/share/mcc/themes/default/left-background.png"
         #leftPanelMinSize.setBackgroundPixmap(backgroundfile)
         self.rightPaneList = self.factory.createSelectionBox(self.rightPane,"")
+        self.rightPaneList.setNotify()
         self.eventManager.addWidgetEvent(self.rightPaneList, self.onModuleSelected, True)
         self.leftPane = self.factory.createVBox(leftPanelMinSize)
         
-                #logo 
-                #TODO from settings
-                # fix the path
-
         self.tree = self.factory.createTree(self.leftPane, '')
         self.tree.setNotify(True)
         self.tree.setWeight(0,1)
-        #Add the command to the tree
-        self.eventManager.addWidgetEvent(self.tree, self.onCategorySelected, True)
         self.loadFiles()
+        # Set the category to the last selected one.
+        if self.init_cat:
+            self.tree.selectItem(self._getCategory(self.init_cat)['widget'], True)
+        # Add the command to the tree
+        self.eventManager.addWidgetEvent(self.tree, self.onCategorySelected, True)
         logging.debug('call refresh pane')
         self.refreshPane()
 
@@ -149,7 +146,7 @@ class MpDialog(basedialog.BaseDialog):
         
         closeButton = self.factory.createPushButton(self.factory.createRight(bottomLayout), _("Quit"))
         self.eventManager.addWidgetEvent(closeButton, self.onQuitEvent)
-        closeButton.setIcon(os.path.join(self.iconsPath[0],'images','quit.png'))
+        closeButton.setIcon(os.path.join(self.iconsPath[0],'quit.png'))
         
      # End Dialog layout
 
@@ -191,15 +188,15 @@ class MpDialog(basedialog.BaseDialog):
                 i = 0
                 for module in self._modules :
                     if module['category'] == category['widget'] :
-                        modButton = yui.YItem(module['title'], self.fullIconPath(module['icon']))
+                        modButton = yui.YItem(module['title'], module['icon'], False)
                         modButton.this.own(False)
+                        #self.eventManager.addWidgetEvent(modButton, self.onModuleSelected, True)
                         collection.push_back(modButton)
                         self._modules[i]['widget'] = modButton
                     i += 1
                 break
-        self.rightPaneList.addItems(collection)
         #Add the command to the list
-        self.myReplacePoint.showChild()
+        self.rightPaneList.addItems(collection)
         self.dialog.recalcLayout()
         logging.debug('End refresh')
 
@@ -231,7 +228,7 @@ class MpDialog(basedialog.BaseDialog):
                 logging.debug("Load categories: title content is << %s >>", tmp['title']);
                 tmpCat = self._getCategory(tmp['title'])
                 if (tmpCat == None) :
-                    catItem = yui.YTreeItem( tmp['title'], self.fullIconPath(tmp['icon']))
+                    catItem = yui.YTreeItem( tmp['title'], tmp['icon'])
                     catItem.this.own(False)
                     #childItem = yui.YTreeItem( catItem, "Child", self.fullIconPath(tmp['icon']))
                     #childItem.this.own(False)
@@ -239,7 +236,6 @@ class MpDialog(basedialog.BaseDialog):
                     tmp['widget'] = catItem
                     self._categories.append(tmp)
                     tmpCat = tmp
-                
                 for module in tmp['modules']:
                     if 'title' in module.keys():
                         module['title'] = _(module['title'])
@@ -252,7 +248,7 @@ class MpDialog(basedialog.BaseDialog):
                     
         logging.debug("Building tree")
         self.tree.addItems(collection)
-        logging.debug("End loadFiles")
+        self._modules.sort(key=lambda module: module['order'])
         # Set the active category as the first one
         if self.init_cat:
             for category in self._categories:
@@ -271,6 +267,7 @@ class MpDialog(basedialog.BaseDialog):
             logging.debug(f"Relative path for application icon: {icon}" )
             path = os.path.join(path, icon)
             if os.path.exists(path):
+                logging.debug(f"Found {path}")
                 return path
             else:                              
                 logging.debug(f"Icon {path} doesn't exist" )
@@ -348,21 +345,6 @@ class MpDialog(basedialog.BaseDialog):
             if (module['title'] == name) :
                 return module
         return None
-
-    def _loadCategory(self, category):
-        '''
-        Creates a new button representing a category
-        '''
-        if (not self.catLoaded(category)):
-            catButton = self.factory.createPushButton(self.leftPane,category['title'])
-            catButton.setIcon(os.path.join(self.iconsPath, category['icon']))
-            catButton.setStretchable(0, True)
-            category['widget'] = catButton
-            self._categories.append(category)
-
-            #Add the command to the button
-            ev = self.eventManager.addWidgetEvent(catButton, self.onCategorySelected, True)
-            return category
         
     def onCategorySelected(self, widget):
         i = 0
@@ -381,8 +363,9 @@ class MpDialog(basedialog.BaseDialog):
             module['category'] = category
             self._modules.append(module)
 
-    def onModuleSelected(self):
-            widget = self.rightPaneList.currentItem()
+    def onModuleSelected(self, item):
+            logging.debug("Module selected")
+            widget = self.rightPaneList.selectedItem()
             for i in range(0, len(self._categories)):
                 if self._categories[i]['active'] == True:
                     self.selectedCategory = self._categories[i]['title']

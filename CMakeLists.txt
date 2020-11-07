@@ -72,6 +72,6 @@ install(DIRECTORY ${CMAKE_SOURCE_DIR}/extras/images DESTINATION ${CMAKE_INSTALL_
 
 # Buils configuration file
 file(WRITE ${CMAKE_BINARY_DIR}/mpan.yaml "log_level : debug\nTheme :\n    path : ${CMAKE_INSTALL_IMAGESROOTDIR}\nConfiguration :\n    path : ${CONFIG_FILES_DIR}")
-configure_file(${CMAKE_BINARY_DIR}/mpan.yaml ${CONFIG_FILES_DIR} @ONLY)
+configure_file(${CMAKE_BINARY_DIR}/mpan.yaml ${CONFIG_FILES_DIR}/mpan.yaml @ONLY)
 
 # install(FILES ${CMAKE_SOURCE_DIR}/extras/mpan.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)

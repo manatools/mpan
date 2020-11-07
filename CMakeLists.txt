@@ -48,8 +48,10 @@ set(CMAKE_INSTALL_BINDIR "${CMAKE_INSTALL_PREFIX}/bin")
 set(CMAKE_INSTALL_DATAROOTDIR "${CMAKE_INSTALL_PREFIX}/share")
 set(CMAKE_INSTALL_IMAGESROOTDIR "${CMAKE_INSTALL_PREFIX}/share/icons/manatools/images")
 set(CMAKE_INSTALL_LOCALEDIR "${CMAKE_INSTALL_DATAROOTDIR}/locale")
-set(CONFIG_FILES "${CMAKE_INSTALL_FULL_SYSCONFDIR}/mpan")
-set(CONFIG_FILES_SUBDIR "${CONFIG_FILES}/categories.conf.d")
+set(CMAKE_INSTALL_FULL_SYSCONFDIR "/etc" CACHE PATH "sysconfig directory (default /etc)")
+
+set(CONFIG_FILES_DIR "${CMAKE_INSTALL_FULL_SYSCONFDIR}/mpan")
+set(CONFIG_FILES_SUBDIR "${CONFIG_FILES_DIR}/categories.conf.d")
 
 # Build and install translations
  if(GETTEXT_FOUND)
@@ -59,7 +61,7 @@ set(CONFIG_FILES_SUBDIR "${CONFIG_FILES}/categories.conf.d")
 # Installing application code
 install(PROGRAMS ${CMAKE_SOURCE_DIR}/mpan/mpan DESTINATION ${CMAKE_INSTALL_BINDIR})
 install(PROGRAMS ${CMAKE_SOURCE_DIR}/mpan/configreader.py DESTINATION ${PYTHON_INSTALL_DIR})
-install(FILES ${CMAKE_SOURCE_DIR}/conf/categories.conf DESTINATION ${CONFIG_FILES})
+install(FILES ${CMAKE_SOURCE_DIR}/conf/categories.conf DESTINATION ${CONFIG_FILES_DIR})
 
 
 # Installing additional configuration files
@@ -77,7 +79,7 @@ install(FILES ${CMAKE_SOURCE_DIR}/conf/manawall.conf DESTINATION ${CONFIG_FILES_
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/extras/images DESTINATION ${CMAKE_INSTALL_IMAGESROOTDIR} )
 
 # Buils configuration file
-file(WRITE mpan.yaml "log_level : debug\nTheme :\n    path : ${CMAKE_INSTALL_IMAGESROOTDIR}\nConfiguration :\n    path : ${CONFIG_FILES}")
-install(FILES mpan.yaml DESTINATION "/etc/mpan")
+file(WRITE ${CMAKE_BINARY_DIR}/mpan.yaml "log_level : debug\nTheme :\n    path : ${CMAKE_INSTALL_IMAGESROOTDIR}\nConfiguration :\n    path : ${CONFIG_FILES_DIR}")
+configure_file(${CMAKE_BINARY_DIR}/mpan.yaml ${CONFIG_FILES_DIR} @ONLY)
 
 # install(FILES ${CMAKE_SOURCE_DIR}/extras/mpan.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)

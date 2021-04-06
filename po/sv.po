@@ -21,7 +21,7 @@
 # Lars Westergren <lars.westergren@home.se>, 2003,2005
 # Magnus Björklöf <bjorklof@nic.fi>, 2003
 # Mattias Dahlberg <voz@home.se>, 2001
-# Michael Eklund <willard@null.net>, 2014-2017
+# Michael Eklund <willard@null.net>, 2014-2018
 # Thomas Backlund <tmb@mageia.org>, 2011
 # Tom Svensson <tom@firstdev.com>, 2000
 # Michael Eklund <willard@null.net>, 2014
@@ -31,8 +31,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-25 19:16+0200\n"
-"PO-Revision-Date: 2017-09-20 12:21+0000\n"
+"POT-Creation-Date: 2021-04-06 19:44+0300\n"
+"PO-Revision-Date: 2018-05-17 15:59+0000\n"
 "Last-Translator: Michael Eklund <willard@null.net>\n"
 "Language-Team: Swedish (http://www.transifex.com/MageiaLinux/mageia/language/"
 "sv/)\n"
@@ -82,56 +82,42 @@ msgstr "mpan - Mageia's kontrollpanel för ManaTools"
 msgid "ManaTools panel - application launcher"
 msgstr "ManaTools panel - Starta programmet"
 
-#: mpan/mpan:40
+#: mpan/mpan:47
+#, fuzzy
 msgid "System mode"
-msgstr ""
+msgstr "System"
 
-#: mpan/mpan:42
+#: mpan/mpan:49
+#, fuzzy
 msgid "User mode"
-msgstr ""
+msgstr "Användarnamn"
 
-#: mpan/mpan:43
+#: mpan/mpan:50
+#, fuzzy
 msgid "ManaTools panel"
-msgstr ""
+msgstr "Hanteraren för proxy-servern ManaTools"
 
-#: mpan/mpan:64
+#: mpan/mpan:72
+#, fuzzy
 msgid "Manatools panel - {}"
-msgstr ""
+msgstr "Hanteraren för proxy-servern ManaTools"
 
-#: mpan/mpan:79
-msgid "Categories"
-msgstr "Kategorier"
-
-#: mpan/mpan:86
-msgid "File"
-msgstr "Arkiv"
-
-#: mpan/mpan:87 mpan/mpan:124
-msgid "Quit"
-msgstr ""
-
-#: mpan/mpan:91
+#: mpan/mpan:141
 msgid "Help"
 msgstr "Hjälp"
 
-#: mpan/mpan:92
+#: mpan/mpan:142
+#, fuzzy
 msgid "About"
-msgstr ""
+msgstr "&Om"
 
-#: mpan/mpan:146
+#: mpan/mpan:147
+#, fuzzy
+msgid "Quit"
+msgstr "&Avsluta"
+
+#: mpan/mpan:169
 msgid ""
 "Manatools panel provides an interface for launching modules which are part "
 "of the manatools."
 msgstr ""
-
-#~ msgid "_: Translator(s) name(s) & email(s)\n"
-#~ msgstr ""
-#~ "Thomas Backlund <tmb@mandriva.org>\n"
-#~ "Lars Westergren <lars.westergren@home.se>\n"
-#~ "Kenneth Krekula <kenneth.krekula@kiruna.se>\n"
-#~ "Henrik Borg <hblinux@bredband.net>\n"
-#~ "Mattias Newzella <newzella@linux.nu>\n"
-#~ "Mattias Dahlberg <voz@home.se>\n"
-#~ "Tom Svensson <tom@firstdev.com>\n"
-#~ "Kristoffer Grundström <kristoffer.grundstrom1983@gmail.com>\n"
-#~ "Michael Eklund <willard@null.net>\n"

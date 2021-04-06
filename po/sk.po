@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-25 19:16+0200\n"
+"POT-Creation-Date: 2021-04-06 19:44+0300\n"
 "PO-Revision-Date: 2016-01-14 17:26+0000\n"
 "Last-Translator: Jajo Pajo\n"
 "Language-Team: Slovak (http://www.transifex.com/MageiaLinux/mageia/language/"
@@ -66,49 +66,41 @@ msgstr "mpan - ovládací panel správcovských nástrojov Mageia ManaTools"
 msgid "ManaTools panel - application launcher"
 msgstr "Panel ManaTools - spúšťač aplikácií"
 
-#: mpan/mpan:40
+#: mpan/mpan:47
+#, fuzzy
 msgid "System mode"
-msgstr ""
+msgstr "Systém"
 
-#: mpan/mpan:42
+#: mpan/mpan:49
+#, fuzzy
 msgid "User mode"
-msgstr ""
+msgstr "Používateľské meno"
 
-#: mpan/mpan:43
+#: mpan/mpan:50
+#, fuzzy
 msgid "ManaTools panel"
-msgstr ""
+msgstr "ManaTools správca proxy"
 
-#: mpan/mpan:64
+#: mpan/mpan:72
+#, fuzzy
 msgid "Manatools panel - {}"
-msgstr ""
+msgstr "ManaTools správca proxy"
 
-#: mpan/mpan:79
-msgid "Categories"
-msgstr "Kategórie"
-
-#: mpan/mpan:86
-msgid "File"
-msgstr "Súbor"
-
-#: mpan/mpan:87 mpan/mpan:124
-msgid "Quit"
-msgstr "Koniec"
-
-#: mpan/mpan:91
+#: mpan/mpan:141
 msgid "Help"
 msgstr "Pomoc"
 
-#: mpan/mpan:92
+#: mpan/mpan:142
+#, fuzzy
 msgid "About"
-msgstr ""
+msgstr "O programe"
 
-#: mpan/mpan:146
+#: mpan/mpan:147
+msgid "Quit"
+msgstr "Koniec"
+
+#: mpan/mpan:169
 msgid ""
 "Manatools panel provides an interface for launching modules which are part "
 "of the manatools."
 msgstr ""
-
-#~ msgid "_: Translator(s) name(s) & email(s)\n"
-#~ msgstr ""
-#~ "Tibor Pittich <Tibor.Pittich@mandriva.org>\n"
-#~ "Milan Baša <minkob@mail.t-com.sk>\n"

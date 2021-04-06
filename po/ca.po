@@ -9,15 +9,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Davidmp <medipas@gmail.com>, 2015-2017
-# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2015,2017
+# Davidmp <medipas@gmail.com>, 2015-2020
+# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2015,2017-2019
 # Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2015
+# Rubén <rbndavid@gmail.com>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-25 19:16+0200\n"
-"PO-Revision-Date: 2017-09-13 16:22+0000\n"
+"POT-Creation-Date: 2021-04-06 19:44+0300\n"
+"PO-Revision-Date: 2020-06-03 08:36+0000\n"
 "Last-Translator: Davidmp <medipas@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/MageiaLinux/mageia/language/"
 "ca/)\n"
@@ -33,7 +34,7 @@ msgstr "Gestió de programari"
 
 #: conf/categories.conf.in.h:2
 msgid "Install and Remove Software"
-msgstr "Instal·la i elimina programari"
+msgstr "Instal·la i suprimeix programari"
 
 #: conf/categories.conf.in.h:3
 msgid "Update your System"
@@ -67,46 +68,42 @@ msgstr "mpan - Plafó de control de Mageia ManaTools"
 msgid "ManaTools panel - application launcher"
 msgstr "Plafó de ManaTools - llançador d'aplicació"
 
-#: mpan/mpan:40
+#: mpan/mpan:47
+#, fuzzy
 msgid "System mode"
-msgstr ""
+msgstr "Sistema"
 
-#: mpan/mpan:42
+#: mpan/mpan:49
+#, fuzzy
 msgid "User mode"
-msgstr ""
+msgstr "Nom d'usuari:"
 
-#: mpan/mpan:43
+#: mpan/mpan:50
+#, fuzzy
 msgid "ManaTools panel"
-msgstr ""
+msgstr "Gestor de servidor intermediari de ManaTools"
 
-#: mpan/mpan:64
+#: mpan/mpan:72
+#, fuzzy
 msgid "Manatools panel - {}"
-msgstr ""
+msgstr "Gestor de servidor intermediari de ManaTools"
 
-#: mpan/mpan:79
-msgid "Categories"
-msgstr "Categories"
-
-#: mpan/mpan:86
-msgid "File"
-msgstr "Fitxer"
-
-#: mpan/mpan:87 mpan/mpan:124
-msgid "Quit"
-msgstr ""
-
-#: mpan/mpan:91
+#: mpan/mpan:141
 msgid "Help"
 msgstr "Ajuda"
 
-#: mpan/mpan:92
+#: mpan/mpan:142
+#, fuzzy
 msgid "About"
-msgstr ""
+msgstr "&Quant a"
 
-#: mpan/mpan:146
+#: mpan/mpan:147
+#, fuzzy
+msgid "Quit"
+msgstr "&Surt"
+
+#: mpan/mpan:169
 msgid ""
 "Manatools panel provides an interface for launching modules which are part "
 "of the manatools."
 msgstr ""
-#~ msgid "_: Translator(s) name(s) & email(s)\n"
-#~ msgstr "La traducció del Mageia es fa per mitjà de www.transifex.com\n"

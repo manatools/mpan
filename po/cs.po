@@ -1,7 +1,7 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.7)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the ManaTools package.
 #
 # #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
@@ -9,24 +9,26 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Jiří Vírava <appukonrad@gmail.com>, 2015-2016
-# Luděk Janča <joelp@email.cz>, 2016
 # fri, 2015
-# fri, 2015-2016
+# Jiří Vírava <appukonrad@gmail.com>, 2015-2016
+# Luděk Janča <joelp@email.cz>, 2016,2020
+# fri, 2015
+# fri, 2015-2017,2020
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-25 19:16+0200\n"
-"PO-Revision-Date: 2016-06-11 21:18+0000\n"
-"Last-Translator: fri\n"
+"POT-Creation-Date: 2021-04-06 19:44+0300\n"
+"PO-Revision-Date: 2020-11-03 17:38+0000\n"
+"Last-Translator: Luděk Janča <joelp@email.cz>\n"
 "Language-Team: Czech (http://www.transifex.com/MageiaLinux/mageia/language/"
 "cs/)\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n "
+"<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 #: conf/categories.conf.in.h:1
 msgid "Software Management"
@@ -68,49 +70,42 @@ msgstr "mpan - Ovládací panel ManaTools Mageii"
 msgid "ManaTools panel - application launcher"
 msgstr "Panel ManaTools - Spouštěč programů"
 
-#: mpan/mpan:40
+#: mpan/mpan:47
+#, fuzzy
 msgid "System mode"
-msgstr ""
+msgstr "Systém"
 
-#: mpan/mpan:42
+#: mpan/mpan:49
+#, fuzzy
 msgid "User mode"
-msgstr ""
+msgstr "Jméno uživatele"
 
-#: mpan/mpan:43
+#: mpan/mpan:50
+#, fuzzy
 msgid "ManaTools panel"
-msgstr ""
+msgstr "Správce proxy ManaTools"
 
-#: mpan/mpan:64
+#: mpan/mpan:72
+#, fuzzy
 msgid "Manatools panel - {}"
-msgstr ""
+msgstr "Správce proxy ManaTools"
 
-#: mpan/mpan:79
-msgid "Categories"
-msgstr "Skupiny"
-
-#: mpan/mpan:86
-msgid "File"
-msgstr "Soubor"
-
-#: mpan/mpan:87 mpan/mpan:124
-msgid "Quit"
-msgstr ""
-
-#: mpan/mpan:91
+#: mpan/mpan:141
 msgid "Help"
 msgstr "Nápověda"
 
-#: mpan/mpan:92
+#: mpan/mpan:142
+#, fuzzy
 msgid "About"
-msgstr ""
+msgstr "O programu"
 
-#: mpan/mpan:146
+#: mpan/mpan:147
+#, fuzzy
+msgid "Quit"
+msgstr "U&končit"
+
+#: mpan/mpan:169
 msgid ""
 "Manatools panel provides an interface for launching modules which are part "
 "of the manatools."
 msgstr ""
-
-#~ msgid "_: Translator(s) name(s) & email(s)\n"
-#~ msgstr ""
-#~ "Michal Bukovjan <bukm@centrum.cz>\n"
-#~ "Pavel Fric <pavelfric@seznam.cz>\n"

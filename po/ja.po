@@ -1,0 +1,106 @@
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.7)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
+# This file is distributed under the same license as the ManaTools package.
+#
+# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# Masanori Kakura <kakurasan@gmail.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Mageia\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-06 19:44+0300\n"
+"PO-Revision-Date: 2018-01-13 02:10+0000\n"
+"Last-Translator: Masanori Kakura <kakurasan@gmail.com>\n"
+"Language-Team: Japanese (http://www.transifex.com/MageiaLinux/mageia/"
+"language/ja/)\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: conf/categories.conf.in.h:1
+msgid "Software Management"
+msgstr "ソフトウェアの管理"
+
+#: conf/categories.conf.in.h:2
+msgid "Install and Remove Software"
+msgstr "ソフトウェアのインストールと削除"
+
+#: conf/categories.conf.in.h:3
+msgid "Update your System"
+msgstr "システムをアップデート"
+
+#: conf/categories.conf.in.h:4
+msgid "Configure media sources for install and update"
+msgstr "インストールと更新のためのメディア ソースを設定"
+
+#: conf/categories.conf.in.h:5
+msgid "System"
+msgstr "システム"
+
+#: conf/categories.conf.in.h:6
+msgid "Network &amp;&amp; Internet"
+msgstr "ネットワークとインターネット"
+
+#: conf/categories.conf.in.h:7
+msgid "Security"
+msgstr "セキュリティ"
+
+#: conf/categories.conf.in.h:8
+msgid "Boot"
+msgstr "起動"
+
+#: extras/mpan.desktop.in.h:1
+msgid "mpan - Mageia ManaTools Control Panel"
+msgstr "mpan - Mageia ManaTools コントロール パネル"
+
+#: extras/mpan.desktop.in.h:2
+msgid "ManaTools panel - application launcher"
+msgstr "ManaTools パネル - アプリケーション ランチャ"
+
+#: mpan/mpan:47
+#, fuzzy
+msgid "System mode"
+msgstr "システム"
+
+#: mpan/mpan:49
+#, fuzzy
+msgid "User mode"
+msgstr "ユーザ名"
+
+#: mpan/mpan:50
+#, fuzzy
+msgid "ManaTools panel"
+msgstr "ManaTools プロキシ マネージャ"
+
+#: mpan/mpan:72
+#, fuzzy
+msgid "Manatools panel - {}"
+msgstr "ManaTools プロキシ マネージャ"
+
+#: mpan/mpan:141
+msgid "Help"
+msgstr "ヘルプ"
+
+#: mpan/mpan:142
+#, fuzzy
+msgid "About"
+msgstr "情報(&A)"
+
+#: mpan/mpan:147
+#, fuzzy
+msgid "Quit"
+msgstr "終了(&Q)"
+
+#: mpan/mpan:169
+msgid ""
+"Manatools panel provides an interface for launching modules which are part "
+"of the manatools."
+msgstr ""

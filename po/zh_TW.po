@@ -1,7 +1,7 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.1)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.7)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the ManaTools package.
 #
 # #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
@@ -9,14 +9,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# You-Cheng Hsieh <yochenhsieh@gmail.com>, 2013,2015
+# Cheng-Chia Tseng <pswo10680@gmail.com>, 2018
+# You-Cheng Hsieh <yochenhsieh@gmail.com>, 2013,2015,2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-25 19:16+0200\n"
-"PO-Revision-Date: 2016-02-15 09:41+0000\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"POT-Creation-Date: 2021-04-06 19:44+0300\n"
+"PO-Revision-Date: 2018-12-11 01:29+0000\n"
+"Last-Translator: You-Cheng Hsieh <yochenhsieh@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/MageiaLinux/mageia/"
 "language/zh_TW/)\n"
 "Language: zh_TW\n"
@@ -27,7 +28,7 @@ msgstr ""
 
 #: conf/categories.conf.in.h:1
 msgid "Software Management"
-msgstr "軟體套件管理程式"
+msgstr "軟體管理"
 
 #: conf/categories.conf.in.h:2
 msgid "Install and Remove Software"
@@ -39,7 +40,7 @@ msgstr ""
 
 #: conf/categories.conf.in.h:4
 msgid "Configure media sources for install and update"
-msgstr "設定安裝與更新套件使用的媒體來源"
+msgstr "設定安裝與更新要使用的媒體來源"
 
 #: conf/categories.conf.in.h:5
 msgid "System"
@@ -65,49 +66,40 @@ msgstr ""
 msgid "ManaTools panel - application launcher"
 msgstr ""
 
-#: mpan/mpan:40
+#: mpan/mpan:47
+#, fuzzy
 msgid "System mode"
-msgstr ""
+msgstr "系統"
 
-#: mpan/mpan:42
+#: mpan/mpan:49
+#, fuzzy
 msgid "User mode"
-msgstr ""
+msgstr "使用者名稱"
 
-#: mpan/mpan:43
+#: mpan/mpan:50
 msgid "ManaTools panel"
 msgstr ""
 
-#: mpan/mpan:64
+#: mpan/mpan:72
 msgid "Manatools panel - {}"
 msgstr ""
 
-#: mpan/mpan:79
-msgid "Categories"
-msgstr ""
-
-#: mpan/mpan:86
-msgid "File"
-msgstr ""
-
-#: mpan/mpan:87 mpan/mpan:124
-msgid "Quit"
-msgstr ""
-
-#: mpan/mpan:91
+#: mpan/mpan:141
 msgid "Help"
 msgstr "輔助說明"
 
-#: mpan/mpan:92
+#: mpan/mpan:142
+#, fuzzy
 msgid "About"
-msgstr ""
+msgstr "關於(&A)"
 
-#: mpan/mpan:146
+#: mpan/mpan:147
+#, fuzzy
+msgid "Quit"
+msgstr "退出(&Q)"
+
+#: mpan/mpan:169
 msgid ""
 "Manatools panel provides an interface for launching modules which are part "
 "of the manatools."
 msgstr ""
-
-#~ msgid "_: Translator(s) name(s) & email(s)\n"
-#~ msgstr ""
-#~ "Shiva Huang <shivahuang@gmail.com>\n"
-#~ "You-Cheng Hsieh <yochenhsieh@gmail.com>\n"

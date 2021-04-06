@@ -1,0 +1,104 @@
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.7)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
+# This file is distributed under the same license as the ManaTools package.
+#
+# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# enolp <enolp@softastur.org>, 2016,2018,2020-2021
+msgid ""
+msgstr ""
+"Project-Id-Version: Mageia\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-06 19:44+0300\n"
+"PO-Revision-Date: 2021-01-06 05:26+0000\n"
+"Last-Translator: enolp <enolp@softastur.org>\n"
+"Language-Team: Asturian (http://www.transifex.com/MageiaLinux/mageia/"
+"language/ast/)\n"
+"Language: ast\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: conf/categories.conf.in.h:1
+msgid "Software Management"
+msgstr "Xestión del software"
+
+#: conf/categories.conf.in.h:2
+msgid "Install and Remove Software"
+msgstr ""
+
+#: conf/categories.conf.in.h:3
+msgid "Update your System"
+msgstr ""
+
+#: conf/categories.conf.in.h:4
+msgid "Configure media sources for install and update"
+msgstr "Configurar los oríxenes de medios pa instalar y anovar"
+
+#: conf/categories.conf.in.h:5
+msgid "System"
+msgstr "Sistema"
+
+#: conf/categories.conf.in.h:6
+msgid "Network &amp;&amp; Internet"
+msgstr ""
+
+#: conf/categories.conf.in.h:7
+msgid "Security"
+msgstr "Seguranza"
+
+#: conf/categories.conf.in.h:8
+msgid "Boot"
+msgstr "Arrinque"
+
+#: extras/mpan.desktop.in.h:1
+msgid "mpan - Mageia ManaTools Control Panel"
+msgstr ""
+
+#: extras/mpan.desktop.in.h:2
+msgid "ManaTools panel - application launcher"
+msgstr ""
+
+#: mpan/mpan:47
+#, fuzzy
+msgid "System mode"
+msgstr "Sistema"
+
+#: mpan/mpan:49
+#, fuzzy
+msgid "User mode"
+msgstr "Nome"
+
+#: mpan/mpan:50
+msgid "ManaTools panel"
+msgstr ""
+
+#: mpan/mpan:72
+msgid "Manatools panel - {}"
+msgstr ""
+
+#: mpan/mpan:141
+msgid "Help"
+msgstr "Ayuda"
+
+#: mpan/mpan:142
+#, fuzzy
+msgid "About"
+msgstr "&Tocante a"
+
+#: mpan/mpan:147
+#, fuzzy
+msgid "Quit"
+msgstr "&Colar"
+
+#: mpan/mpan:169
+msgid ""
+"Manatools panel provides an interface for launching modules which are part "
+"of the manatools."
+msgstr ""

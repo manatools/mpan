@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-25 19:16+0200\n"
+"POT-Creation-Date: 2021-04-06 19:44+0300\n"
 "PO-Revision-Date: 2016-03-16 10:50+0000\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Finnish (http://www.transifex.com/MageiaLinux/mageia/language/"
@@ -64,43 +64,36 @@ msgstr ""
 msgid "ManaTools panel - application launcher"
 msgstr ""
 
-#: mpan/mpan:40
+#: mpan/mpan:47
 msgid "System mode"
 msgstr ""
 
-#: mpan/mpan:42
+#: mpan/mpan:49
+#, fuzzy
 msgid "User mode"
-msgstr ""
+msgstr "Käyttäjätunnus:"
 
-#: mpan/mpan:43
+#: mpan/mpan:50
 msgid "ManaTools panel"
 msgstr ""
 
-#: mpan/mpan:64
+#: mpan/mpan:72
 msgid "Manatools panel - {}"
 msgstr ""
 
-#: mpan/mpan:79
-msgid "Categories"
-msgstr ""
-
-#: mpan/mpan:86
-msgid "File"
-msgstr ""
-
-#: mpan/mpan:87 mpan/mpan:124
-msgid "Quit"
-msgstr ""
-
-#: mpan/mpan:91
+#: mpan/mpan:141
 msgid "Help"
 msgstr ""
 
-#: mpan/mpan:92
+#: mpan/mpan:142
 msgid "About"
 msgstr ""
 
-#: mpan/mpan:146
+#: mpan/mpan:147
+msgid "Quit"
+msgstr ""
+
+#: mpan/mpan:169
 msgid ""
 "Manatools panel provides an interface for launching modules which are part "
 "of the manatools."

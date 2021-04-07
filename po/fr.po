@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-25 19:16+0200\n"
+"POT-Creation-Date: 2021-04-06 19:44+0300\n"
 "PO-Revision-Date: 2017-09-10 21:01+0000\n"
 "Last-Translator: Charles Monzat <superboa@hotmail.fr>\n"
 "Language-Team: French (http://www.transifex.com/MageiaLinux/mageia/language/"
@@ -71,52 +71,42 @@ msgstr "mpan - Panneau de Contrôle des ManaTools Mageia"
 msgid "ManaTools panel - application launcher"
 msgstr "Panneau des ManaTools - lanceur d'application"
 
-#: mpan/mpan:40
+#: mpan/mpan:47
+#, fuzzy
 msgid "System mode"
-msgstr "Mode administrateur"
+msgstr "Système"
 
-#: mpan/mpan:42
+#: mpan/mpan:49
+#, fuzzy
 msgid "User mode"
-msgstr "Mode utilisateur"
+msgstr "Nom d'utilisateur"
 
-#: mpan/mpan:43
+#: mpan/mpan:50
+#, fuzzy
 msgid "ManaTools panel"
-msgstr "Centre Manatools"
+msgstr "Gestionnaire ManaTools du serveur mandataire (proxy)"
 
-#: mpan/mpan:64
+#: mpan/mpan:72
+#, fuzzy
 msgid "Manatools panel - {}"
-msgstr "Centre Manatools - {}"
+msgstr "Gestionnaire ManaTools du serveur mandataire (proxy)"
 
-#: mpan/mpan:79
-msgid "Categories"
-msgstr "Catégories"
-
-#: mpan/mpan:86
-msgid "File"
-msgstr "Fichier"
-
-#: mpan/mpan:87 mpan/mpan:124
-msgid "Quit"
-msgstr "Quitter"
-
-#: mpan/mpan:91
+#: mpan/mpan:141
 msgid "Help"
 msgstr "Aide"
 
-#: mpan/mpan:92
+#: mpan/mpan:142
+#, fuzzy
 msgid "About"
 msgstr "À propos"
 
-#: mpan/mpan:146
+#: mpan/mpan:147
+#, fuzzy
+msgid "Quit"
+msgstr "&Quitter"
+
+#: mpan/mpan:169
 msgid ""
 "Manatools panel provides an interface for launching modules which are part "
 "of the manatools."
 msgstr ""
-
-#~ msgid "_: Translator(s) name(s) & email(s)\n"
-#~ msgstr ""
-#~ "Antoine DUMONDEL\n"
-#~ "Charles Monzat <superboa@hotmail.fr>\n"
-#~ "Eric Barbero <dune06@free.fr>\n"
-#~ "Kévin R.\n"
-#~ "Yves Brungard\n"

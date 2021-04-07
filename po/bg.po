@@ -1,7 +1,7 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.1)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.7)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the ManaTools package.
 #
 # #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-25 19:16+0200\n"
-"PO-Revision-Date: 2016-04-16 21:21+0000\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"POT-Creation-Date: 2021-04-06 19:44+0300\n"
+"PO-Revision-Date: 2018-09-09 11:45+0000\n"
+"Last-Translator: Georgi Georgiev <georgiev_1994@abv.bg>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/MageiaLinux/mageia/"
 "language/bg/)\n"
 "Language: bg\n"
@@ -64,48 +64,39 @@ msgstr ""
 msgid "ManaTools panel - application launcher"
 msgstr ""
 
-#: mpan/mpan:40
+#: mpan/mpan:47
 msgid "System mode"
 msgstr ""
 
-#: mpan/mpan:42
+#: mpan/mpan:49
+#, fuzzy
 msgid "User mode"
-msgstr ""
+msgstr "Потребител:"
 
-#: mpan/mpan:43
+#: mpan/mpan:50
 msgid "ManaTools panel"
 msgstr ""
 
-#: mpan/mpan:64
+#: mpan/mpan:72
 msgid "Manatools panel - {}"
 msgstr ""
 
-#: mpan/mpan:79
-msgid "Categories"
-msgstr ""
-
-#: mpan/mpan:86
-msgid "File"
-msgstr ""
-
-#: mpan/mpan:87 mpan/mpan:124
-msgid "Quit"
-msgstr ""
-
-#: mpan/mpan:91
+#: mpan/mpan:141
 msgid "Help"
-msgstr ""
+msgstr "Помощ"
 
-#: mpan/mpan:92
+#: mpan/mpan:142
+#, fuzzy
 msgid "About"
-msgstr ""
+msgstr "&Относно"
 
-#: mpan/mpan:146
+#: mpan/mpan:147
+#, fuzzy
+msgid "Quit"
+msgstr "&Затвори"
+
+#: mpan/mpan:169
 msgid ""
 "Manatools panel provides an interface for launching modules which are part "
 "of the manatools."
 msgstr ""
-#~ msgid "_: Translator(s) name(s) & email(s)\n"
-#~ msgstr ""
-#~ "Boyan Ivanov <boyan17@bulgaria.com>\n"
-#~ "Georgi Georgiev <georgiev_1994@abv.bg>\n"

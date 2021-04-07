@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-25 19:16+0200\n"
+"POT-Creation-Date: 2021-04-06 19:44+0300\n"
 "PO-Revision-Date: 2017-10-22 13:41+0000\n"
 "Last-Translator: zwpwjwtz <zwpwjwtz@126.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/MageiaLinux/mageia/"
@@ -65,49 +65,42 @@ msgstr "mpan - Mageia ManaTools 控制面板"
 msgid "ManaTools panel - application launcher"
 msgstr "ManaTools 面板 - 程序启动器"
 
-#: mpan/mpan:40
+#: mpan/mpan:47
+#, fuzzy
 msgid "System mode"
-msgstr ""
+msgstr "系统"
 
-#: mpan/mpan:42
+#: mpan/mpan:49
+#, fuzzy
 msgid "User mode"
-msgstr ""
+msgstr "用户名"
 
-#: mpan/mpan:43
+#: mpan/mpan:50
+#, fuzzy
 msgid "ManaTools panel"
-msgstr ""
+msgstr "ManaTools 代理管理器"
 
-#: mpan/mpan:64
+#: mpan/mpan:72
+#, fuzzy
 msgid "Manatools panel - {}"
-msgstr ""
+msgstr "ManaTools 代理管理器"
 
-#: mpan/mpan:79
-msgid "Categories"
-msgstr "分类"
-
-#: mpan/mpan:86
-msgid "File"
-msgstr "文件"
-
-#: mpan/mpan:87 mpan/mpan:124
-msgid "Quit"
-msgstr ""
-
-#: mpan/mpan:91
+#: mpan/mpan:141
 msgid "Help"
 msgstr "帮助"
 
-#: mpan/mpan:92
+#: mpan/mpan:142
+#, fuzzy
 msgid "About"
-msgstr ""
+msgstr "关于(&A)"
 
-#: mpan/mpan:146
+#: mpan/mpan:147
+#, fuzzy
+msgid "Quit"
+msgstr "退出(&Q)"
+
+#: mpan/mpan:169
 msgid ""
 "Manatools panel provides an interface for launching modules which are part "
 "of the manatools."
 msgstr ""
-
-#~ msgid "_: Translator(s) name(s) & email(s)\n"
-#~ msgstr ""
-#~ "Funda Wang <fundawang@gmail.com>\n"
-#~ "Tianze Wang <zwpwjwtz@126.com>\n"

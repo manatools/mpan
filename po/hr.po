@@ -1,0 +1,105 @@
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.7)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
+# This file is distributed under the same license as the ManaTools package.
+#
+# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# Ivica  Kolić <ikoli@yahoo.com>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Mageia\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-06 19:44+0300\n"
+"PO-Revision-Date: 2017-09-22 11:18+0000\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Croatian (http://www.transifex.com/MageiaLinux/mageia/"
+"language/hr/)\n"
+"Language: hr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#: conf/categories.conf.in.h:1
+msgid "Software Management"
+msgstr ""
+
+#: conf/categories.conf.in.h:2
+msgid "Install and Remove Software"
+msgstr ""
+
+#: conf/categories.conf.in.h:3
+msgid "Update your System"
+msgstr ""
+
+#: conf/categories.conf.in.h:4
+msgid "Configure media sources for install and update"
+msgstr "Konfigurirajte izvore izvore medija za instalaciju i ažuriranje"
+
+#: conf/categories.conf.in.h:5
+msgid "System"
+msgstr "Sustav"
+
+#: conf/categories.conf.in.h:6
+msgid "Network &amp;&amp; Internet"
+msgstr ""
+
+#: conf/categories.conf.in.h:7
+msgid "Security"
+msgstr "Sigurnost"
+
+#: conf/categories.conf.in.h:8
+msgid "Boot"
+msgstr "Pokretani sustav"
+
+#: extras/mpan.desktop.in.h:1
+msgid "mpan - Mageia ManaTools Control Panel"
+msgstr ""
+
+#: extras/mpan.desktop.in.h:2
+msgid "ManaTools panel - application launcher"
+msgstr ""
+
+#: mpan/mpan:47
+#, fuzzy
+msgid "System mode"
+msgstr "Sustav"
+
+#: mpan/mpan:49
+#, fuzzy
+msgid "User mode"
+msgstr "Ime korisnika:"
+
+#: mpan/mpan:50
+msgid "ManaTools panel"
+msgstr ""
+
+#: mpan/mpan:72
+msgid "Manatools panel - {}"
+msgstr ""
+
+#: mpan/mpan:141
+msgid "Help"
+msgstr "Pomoć"
+
+#: mpan/mpan:142
+#, fuzzy
+msgid "About"
+msgstr "&O programu"
+
+#: mpan/mpan:147
+#, fuzzy
+msgid "Quit"
+msgstr "&Prekini"
+
+#: mpan/mpan:169
+msgid ""
+"Manatools panel provides an interface for launching modules which are part "
+"of the manatools."
+msgstr ""

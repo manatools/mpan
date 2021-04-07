@@ -1,7 +1,7 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.7)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the ManaTools package.
 #
 # #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
@@ -13,13 +13,15 @@
 # tarakbumba <tarakbumba@gmail.com>, 2015-2016
 # mahmut özcan <faradundamarti@yandex.com>, 2015
 # Fırat Kutlu <firatkutlu@yandex.com>, 2015
-# tarakbumba <tarakbumba@gmail.com>, 2017
+# Fırat Kutlu <firatkutlu@yandex.com>, 2015
+# mahmut özcan <faradundamarti@yandex.com>, 2015
+# tarakbumba <tarakbumba@gmail.com>, 2015,2017-2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-25 19:16+0200\n"
-"PO-Revision-Date: 2017-03-15 13:43+0000\n"
+"POT-Creation-Date: 2021-04-06 19:44+0300\n"
+"PO-Revision-Date: 2018-01-11 22:13+0000\n"
 "Last-Translator: tarakbumba <tarakbumba@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/MageiaLinux/mageia/language/"
 "tr/)\n"
@@ -69,50 +71,42 @@ msgstr "mpan - Mageia ManaTools Denetim Paneli"
 msgid "ManaTools panel - application launcher"
 msgstr "ManaTools paneli- uygulama başlatıcı"
 
-#: mpan/mpan:40
+#: mpan/mpan:47
+#, fuzzy
 msgid "System mode"
-msgstr ""
+msgstr "Sistem"
 
-#: mpan/mpan:42
+#: mpan/mpan:49
+#, fuzzy
 msgid "User mode"
-msgstr ""
+msgstr "Kullanıcı Adı"
 
-#: mpan/mpan:43
+#: mpan/mpan:50
+#, fuzzy
 msgid "ManaTools panel"
-msgstr ""
+msgstr "ManaTools vekil sunucu yöneticisi"
 
-#: mpan/mpan:64
+#: mpan/mpan:72
+#, fuzzy
 msgid "Manatools panel - {}"
-msgstr ""
+msgstr "ManaTools vekil sunucu yöneticisi"
 
-#: mpan/mpan:79
-msgid "Categories"
-msgstr "Kategoriler"
-
-#: mpan/mpan:86
-msgid "File"
-msgstr "Dosya"
-
-#: mpan/mpan:87 mpan/mpan:124
-msgid "Quit"
-msgstr ""
-
-#: mpan/mpan:91
+#: mpan/mpan:141
 msgid "Help"
 msgstr "Yardım"
 
-#: mpan/mpan:92
+#: mpan/mpan:142
+#, fuzzy
 msgid "About"
-msgstr ""
+msgstr "&Hakkında"
 
-#: mpan/mpan:146
+#: mpan/mpan:147
+#, fuzzy
+msgid "Quit"
+msgstr "&Çık"
+
+#: mpan/mpan:169
 msgid ""
 "Manatools panel provides an interface for launching modules which are part "
 "of the manatools."
 msgstr ""
-
-#~ msgid "_: Translator(s) name(s) & email(s)\n"
-#~ msgstr ""
-#~ "Faraduntamarti <faradundamarti@yandex.com>\n"
-#~ "Atilla ÖNTAŞ <tarakbumba@gmail.com>\n"
-#~ "Fırat Kutlu <firatkutlu@gmail.com>\n"

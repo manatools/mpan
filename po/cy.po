@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-25 19:16+0200\n"
+"POT-Creation-Date: 2021-04-06 19:44+0300\n"
 "PO-Revision-Date: 2016-01-30 15:39+0000\n"
 "Last-Translator: ciaran\n"
 "Language-Team: Welsh (http://www.transifex.com/MageiaLinux/mageia/language/"
@@ -66,47 +66,41 @@ msgstr "mpan - Panel rheoli ManaTools Mageia"
 msgid "ManaTools panel - application launcher"
 msgstr "Panel ManaTools - lansiwr rhaglenni"
 
-#: mpan/mpan:40
+#: mpan/mpan:47
+#, fuzzy
 msgid "System mode"
-msgstr ""
+msgstr "System"
 
-#: mpan/mpan:42
+#: mpan/mpan:49
+#, fuzzy
 msgid "User mode"
-msgstr ""
+msgstr "Enw defnyddiwr"
 
-#: mpan/mpan:43
+#: mpan/mpan:50
+#, fuzzy
 msgid "ManaTools panel"
-msgstr ""
+msgstr "Rheolydd dirprwyon ManaTools"
 
-#: mpan/mpan:64
+#: mpan/mpan:72
+#, fuzzy
 msgid "Manatools panel - {}"
-msgstr ""
+msgstr "Rheolydd dirprwyon ManaTools"
 
-#: mpan/mpan:79
-msgid "Categories"
-msgstr "Categorïau"
-
-#: mpan/mpan:86
-msgid "File"
-msgstr "Ffeil"
-
-#: mpan/mpan:87 mpan/mpan:124
-msgid "Quit"
-msgstr "Gadael"
-
-#: mpan/mpan:91
+#: mpan/mpan:141
 msgid "Help"
 msgstr "Cymorth"
 
-#: mpan/mpan:92
+#: mpan/mpan:142
+#, fuzzy
 msgid "About"
-msgstr ""
+msgstr "&Ynghylch"
 
-#: mpan/mpan:146
+#: mpan/mpan:147
+msgid "Quit"
+msgstr "Gadael"
+
+#: mpan/mpan:169
 msgid ""
 "Manatools panel provides an interface for launching modules which are part "
 "of the manatools."
 msgstr ""
-
-#~ msgid "_: Translator(s) name(s) & email(s)\n"
-#~ msgstr "Ciaran\n"

@@ -1,29 +1,23 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.7)  #-#-#-#-#
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
-# This file is distributed under the same license as the ManaTools package.
-#
-# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the mpan package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Miguel, 2015-2016
-# Egoitz Rodriguez <egoitzro@gmail.com>, 2015
-# José Alberto Valle Cid <j.alberto.vc@gmail.com>, 2020
-# 9d2429286e4b6db037855ee18ff950ea_21b1117 <e234ccd2dcb0d5482e17780be633a729_130514>, 2016
-# 9d2429286e4b6db037855ee18ff950ea_21b1117 <e234ccd2dcb0d5482e17780be633a729_130514>, 2016
-# Miguel Ortega, 2016
-# Miguel, 2016,2018
+# Jose Manuel López <joselp@disroot.org>, 2021
+# José Alberto Valle Cid <j.alberto.vc@gmail.com>, 2021
+# Yuri Chornoivan <yurchor@ukr.net>, 2021
+# Miguel, 2021
+#
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mageia\n"
+"Project-Id-Version: mpan 0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-06 19:44+0300\n"
-"PO-Revision-Date: 2020-06-19 23:11+0000\n"
-"Last-Translator: José Alberto Valle Cid <j.alberto.vc@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/MageiaLinux/mageia/language/"
+"PO-Revision-Date: 2021-04-07 19:27+0000\n"
+"Last-Translator: Miguel, 2021\n"
+"Language-Team: Spanish (https://www.transifex.com/MageiaLinux/teams/9361/"
 "es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -72,41 +66,37 @@ msgid "ManaTools panel - application launcher"
 msgstr "Panel ManaTools - lanzador de aplicaciones"
 
 #: mpan/mpan:47
-#, fuzzy
 msgid "System mode"
-msgstr "Sistema"
+msgstr "Modo del sistema"
 
 #: mpan/mpan:49
-#, fuzzy
 msgid "User mode"
-msgstr "Nombre de usuario"
+msgstr "Modo de usuario"
 
 #: mpan/mpan:50
-#, fuzzy
 msgid "ManaTools panel"
-msgstr "Administrador del proxy de ManaTools"
+msgstr "Panel ManaTools"
 
 #: mpan/mpan:72
-#, fuzzy
 msgid "Manatools panel - {}"
-msgstr "Administrador del proxy de ManaTools"
+msgstr "Panel Manatools - {}"
 
 #: mpan/mpan:141
 msgid "Help"
 msgstr "Ayuda"
 
 #: mpan/mpan:142
-#, fuzzy
 msgid "About"
-msgstr "&Acerca de"
+msgstr "Acerca de"
 
 #: mpan/mpan:147
-#, fuzzy
 msgid "Quit"
-msgstr "&Salir"
+msgstr "Salir"
 
 #: mpan/mpan:169
 msgid ""
 "Manatools panel provides an interface for launching modules which are part "
 "of the manatools."
 msgstr ""
+"El panel Manatools proporciona una interfaz para iniciar los módulos que "
+"forman parte de manatools."

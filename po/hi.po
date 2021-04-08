@@ -1,24 +1,21 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.7)  #-#-#-#-#
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
-# This file is distributed under the same license as the ManaTools package.
-#
-# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the mpan package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Panwar108 <caspian7pena@gmail.com>, 2018,2020
+# Panwar108 <caspian7pena@gmail.com>, 2021
+# Yuri Chornoivan <yurchor@ukr.net>, 2021
+#
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mageia\n"
+"Project-Id-Version: mpan 0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-06 19:44+0300\n"
-"PO-Revision-Date: 2020-06-08 06:59+0000\n"
-"Last-Translator: Panwar108 <caspian7pena@gmail.com>\n"
-"Language-Team: Hindi (http://www.transifex.com/MageiaLinux/mageia/language/"
-"hi/)\n"
+"PO-Revision-Date: 2021-04-07 19:27+0000\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>, 2021\n"
+"Language-Team: Hindi (https://www.transifex.com/MageiaLinux/teams/9361/hi/)\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,7 +40,7 @@ msgstr ""
 
 #: conf/categories.conf.in.h:5
 msgid "System"
-msgstr ""
+msgstr "तंत्र"
 
 #: conf/categories.conf.in.h:6
 msgid "Network &amp;&amp; Internet"
@@ -51,7 +48,7 @@ msgstr ""
 
 #: conf/categories.conf.in.h:7
 msgid "Security"
-msgstr ""
+msgstr "सुरक्षा"
 
 #: conf/categories.conf.in.h:8
 msgid "Boot"
@@ -67,12 +64,11 @@ msgstr ""
 
 #: mpan/mpan:47
 msgid "System mode"
-msgstr ""
+msgstr "तंत्र विधा"
 
 #: mpan/mpan:49
-#, fuzzy
 msgid "User mode"
-msgstr "उपयोक्ता नामः"
+msgstr ""
 
 #: mpan/mpan:50
 msgid "ManaTools panel"
@@ -88,11 +84,11 @@ msgstr "मदद"
 
 #: mpan/mpan:142
 msgid "About"
-msgstr ""
+msgstr "बारे में"
 
 #: mpan/mpan:147
 msgid "Quit"
-msgstr ""
+msgstr "बंद करें"
 
 #: mpan/mpan:169
 msgid ""

@@ -1,23 +1,21 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.7)  #-#-#-#-#
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
-# This file is distributed under the same license as the ManaTools package.
-#
-# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the mpan package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# tomaja <toma.jankovic@gmail.com>, 2019
+# Yuri Chornoivan <yurchor@ukr.net>, 2021
+# tomaja <toma.jankovic@gmail.com>, 2021
+#
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mageia\n"
+"Project-Id-Version: mpan 0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-06 19:44+0300\n"
-"PO-Revision-Date: 2019-07-30 18:07+0000\n"
-"Last-Translator: tomaja <toma.jankovic@gmail.com>\n"
-"Language-Team: Serbian (http://www.transifex.com/MageiaLinux/mageia/language/"
+"PO-Revision-Date: 2021-04-07 19:27+0000\n"
+"Last-Translator: tomaja <toma.jankovic@gmail.com>, 2021\n"
+"Language-Team: Serbian (https://www.transifex.com/MageiaLinux/teams/9361/"
 "sr/)\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
@@ -67,41 +65,37 @@ msgid "ManaTools panel - application launcher"
 msgstr "ManaTools панел - стартер апликација"
 
 #: mpan/mpan:47
-#, fuzzy
 msgid "System mode"
-msgstr "Систем"
+msgstr "Системски мод"
 
 #: mpan/mpan:49
-#, fuzzy
 msgid "User mode"
-msgstr "Корисничко Име"
+msgstr "Кориснички мод"
 
 #: mpan/mpan:50
-#, fuzzy
 msgid "ManaTools panel"
-msgstr "ManaTools менаџер проксија"
+msgstr "ManaTools панел"
 
 #: mpan/mpan:72
-#, fuzzy
 msgid "Manatools panel - {}"
-msgstr "ManaTools менаџер проксија"
+msgstr "Manatools панел - {}"
 
 #: mpan/mpan:141
 msgid "Help"
 msgstr "Помоћ"
 
 #: mpan/mpan:142
-#, fuzzy
 msgid "About"
-msgstr "&О..."
+msgstr "О"
 
 #: mpan/mpan:147
-#, fuzzy
 msgid "Quit"
-msgstr "&Излаз"
+msgstr "Излаз"
 
 #: mpan/mpan:169
 msgid ""
 "Manatools panel provides an interface for launching modules which are part "
 "of the manatools."
 msgstr ""
+"Manatools панел омогућава интерфејс за покретање модула који су део "
+"manatools-а."

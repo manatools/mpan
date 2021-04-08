@@ -1,25 +1,22 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.7)  #-#-#-#-#
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
-# This file is distributed under the same license as the ManaTools package.
-#
-# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the mpan package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Omer I.S. <omeritzicschwartz@gmail.com>, 2020-2021
-# Omer I.S. <omeritzicschwartz@gmail.com>, 2020-2021
-# Yaron Shahrabani <sh.yaron@gmail.com>, 2020
+# Yaron Shahrabani <sh.yaron@gmail.com>, 2021
+# Omer I.S. <omeritzicschwartz@gmail.com>, 2021
+# Yuri Chornoivan <yurchor@ukr.net>, 2021
+#
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mageia\n"
+"Project-Id-Version: mpan 0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-06 19:44+0300\n"
-"PO-Revision-Date: 2021-04-03 19:47+0000\n"
-"Last-Translator: Omer I.S. <omeritzicschwartz@gmail.com>\n"
-"Language-Team: Hebrew (http://www.transifex.com/MageiaLinux/mageia/language/"
+"PO-Revision-Date: 2021-04-07 19:27+0000\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>, 2021\n"
+"Language-Team: Hebrew (https://www.transifex.com/MageiaLinux/teams/9361/"
 "he/)\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
@@ -69,19 +66,16 @@ msgid "ManaTools panel - application launcher"
 msgstr ""
 
 #: mpan/mpan:47
-#, fuzzy
 msgid "System mode"
-msgstr "מערכת"
+msgstr "מצב מערכת"
 
 #: mpan/mpan:49
-#, fuzzy
 msgid "User mode"
-msgstr "שם המשתמש"
+msgstr ""
 
 #: mpan/mpan:50
-#, fuzzy
 msgid "ManaTools panel"
-msgstr "מנהל המשתמשים של ManaTools"
+msgstr ""
 
 #: mpan/mpan:72
 msgid "Manatools panel - {}"
@@ -92,14 +86,12 @@ msgid "Help"
 msgstr "עזרה"
 
 #: mpan/mpan:142
-#, fuzzy
 msgid "About"
-msgstr "על &אודות"
+msgstr "על אודות"
 
 #: mpan/mpan:147
-#, fuzzy
 msgid "Quit"
-msgstr "י&ציאה"
+msgstr "יציאה"
 
 #: mpan/mpan:169
 msgid ""

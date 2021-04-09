@@ -5,8 +5,8 @@
 #
 # Translators:
 # Yaron Shahrabani <sh.yaron@gmail.com>, 2021
-# Omer I.S. <omeritzicschwartz@gmail.com>, 2021
 # Yuri Chornoivan <yurchor@ukr.net>, 2021
+# Omeritzics Games <omeritzicschwartz@gmail.com>, 2021
 #
 #, fuzzy
 msgid ""
@@ -15,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-06 19:44+0300\n"
 "PO-Revision-Date: 2021-04-07 19:27+0000\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>, 2021\n"
+"Last-Translator: Omeritzics Games <omeritzicschwartz@gmail.com>, 2021\n"
 "Language-Team: Hebrew (https://www.transifex.com/MageiaLinux/teams/9361/"
 "he/)\n"
 "Language: he\n"
@@ -47,7 +47,7 @@ msgstr "מערכת"
 
 #: conf/categories.conf.in.h:6
 msgid "Network &amp;&amp; Internet"
-msgstr ""
+msgstr "רשת ואינטרנט"
 
 #: conf/categories.conf.in.h:7
 msgid "Security"
@@ -59,11 +59,11 @@ msgstr "אתחול"
 
 #: extras/mpan.desktop.in.h:1
 msgid "mpan - Mageia ManaTools Control Panel"
-msgstr "mpan - לוח הבקרה ManaTools של Mageia"
+msgstr "mpan - מרכז הבקרה ManaTools של Mageia"
 
 #: extras/mpan.desktop.in.h:2
 msgid "ManaTools panel - application launcher"
-msgstr ""
+msgstr "מרכז הבקרה ManaTools - מפעיל היישומים"
 
 #: mpan/mpan:47
 msgid "System mode"
@@ -71,15 +71,15 @@ msgstr "מצב מערכת"
 
 #: mpan/mpan:49
 msgid "User mode"
-msgstr ""
+msgstr "מצב משתמש"
 
 #: mpan/mpan:50
 msgid "ManaTools panel"
-msgstr ""
+msgstr "מרכז הבקרה ManaTools"
 
 #: mpan/mpan:72
 msgid "Manatools panel - {}"
-msgstr ""
+msgstr "מרכז הבקרה Manatools - ‏{}"
 
 #: mpan/mpan:141
 msgid "Help"
@@ -97,4 +97,4 @@ msgstr "יציאה"
 msgid ""
 "Manatools panel provides an interface for launching modules which are part "
 "of the manatools."
-msgstr ""
+msgstr "למרכז הבקרה ManaTools יש ממשק להפעלת מודולים שהם חלק מ־manatools."

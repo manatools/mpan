@@ -70,15 +70,15 @@ msgstr "Systémový režim"
 
 #: mpan/mpan:49
 msgid "User mode"
-msgstr ""
+msgstr "Uživatelský režim"
 
 #: mpan/mpan:50
 msgid "ManaTools panel"
-msgstr ""
+msgstr "Panel ManaTools"
 
 #: mpan/mpan:72
 msgid "Manatools panel - {}"
-msgstr ""
+msgstr "Panel ManaTools - {}"
 
 #: mpan/mpan:141
 msgid "Help"
@@ -97,3 +97,5 @@ msgid ""
 "Manatools panel provides an interface for launching modules which are part "
 "of the manatools."
 msgstr ""
+"Panel ManaTools poskytuje rozhraní pro spouštění modulů, které jsou součástí "
+"ManaTools."

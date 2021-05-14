@@ -6,8 +6,8 @@
 # Translators:
 # Ettore Atalan <atalanttore@googlemail.com>, 2021
 # Marc Lattemann, 2021
-# psyca, 2021
 # Yuri Chornoivan <yurchor@ukr.net>, 2021
+# psyca, 2021
 #
 #, fuzzy
 msgid ""
@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-06 19:44+0300\n"
 "PO-Revision-Date: 2021-04-07 19:27+0000\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>, 2021\n"
+"Last-Translator: psyca, 2021\n"
 "Language-Team: German (https://www.transifex.com/MageiaLinux/teams/9361/"
 "de/)\n"
 "Language: de\n"
@@ -71,15 +71,15 @@ msgstr "System-Modus"
 
 #: mpan/mpan:49
 msgid "User mode"
-msgstr ""
+msgstr "Benutzermodus"
 
 #: mpan/mpan:50
 msgid "ManaTools panel"
-msgstr ""
+msgstr "ManaTools Panel"
 
 #: mpan/mpan:72
 msgid "Manatools panel - {}"
-msgstr ""
+msgstr "Manatools Panel - {}"
 
 #: mpan/mpan:141
 msgid "Help"
@@ -98,3 +98,5 @@ msgid ""
 "Manatools panel provides an interface for launching modules which are part "
 "of the manatools."
 msgstr ""
+"Das Manatools Panel bietet eine Oberfläche, um Module, welche Teil der "
+"manatools sind, zu starten."

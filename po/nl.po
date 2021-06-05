@@ -1,43 +1,22 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.7)  #-#-#-#-#
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
-# This file is distributed under the same license as the ManaTools package.
-#
-# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the mpan package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# aapgorilla <godutchnow@gmail.com>, 2009
-# Arno Fleming, 2006
-# C. Verschuuren <c.verschuuren AT gmail DOT com>, 2006,2008-2009
-# Dennis Holierhoek <dennis.hh@hotmail.com>, 2016
-# dragnadh <dragnadh@gmail.com>, 2017
-# Geert Poels <Geert.Poels@skynet.be>, 2000
-# Hendrik-Jan Heins <hjh@passys.nl>, 2003-2004
-# Jeroen ten Berge <j.ten.berge@twinbit.nl>, 2002
-# Marja van Waes <marja@mageia.org, 2013,2015
-# Marja van Waes <marja@mageia.org>, 2013-2015
-# Niels Gras <niels.gras@wanadoo.nl>, 2000
-# Peter Bosch <peter.bosch@hccnet.nl>, 2002
-# Peter Bosch <peter@dromas.student.utwente.nl>, 2003
-# Reinout van Schouwen <reinouts@gnome.org>, 2013
-# Reinout van Schouwen <reinouts@gnome.org>, 2013
-# remmy <remco@webconquest.com>, 2011-2013
-# Rob Teng <mandrake.tips@free.fr>, 2004-2005,2008-2009
-# Tom Laermans <tom.laermans@powersource.cx>, 2001
-# Volluta <volluta@tutanota.com>, 2015-2016
-# Yuri Chornoivan <yurchor@ukr.net>, 2015
+# Yuri Chornoivan <yurchor@ukr.net>, 2021
+# dragnadh, 2021
+# Dennis Holierhoek <dennis.hh@hotmail.com>, 2021
+#
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mageia\n"
+"Project-Id-Version: mpan 0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-06 19:44+0300\n"
-"PO-Revision-Date: 2017-09-24 12:21+0000\n"
-"Last-Translator: dragnadh <dragnadh@gmail.com>\n"
-"Language-Team: Dutch (http://www.transifex.com/MageiaLinux/mageia/language/"
-"nl/)\n"
+"PO-Revision-Date: 2021-04-07 19:27+0000\n"
+"Last-Translator: Dennis Holierhoek <dennis.hh@hotmail.com>, 2021\n"
+"Language-Team: Dutch (https://www.transifex.com/MageiaLinux/teams/9361/nl/)\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -85,38 +64,32 @@ msgid "ManaTools panel - application launcher"
 msgstr "ManaTools-paneel - applicatiestarter"
 
 #: mpan/mpan:47
-#, fuzzy
 msgid "System mode"
-msgstr "Systeem"
+msgstr "Systeemmodus"
 
 #: mpan/mpan:49
-#, fuzzy
 msgid "User mode"
-msgstr "Gebruikersnaam"
+msgstr ""
 
 #: mpan/mpan:50
-#, fuzzy
 msgid "ManaTools panel"
-msgstr "ManaTools proxybeheerder"
+msgstr ""
 
 #: mpan/mpan:72
-#, fuzzy
 msgid "Manatools panel - {}"
-msgstr "ManaTools proxybeheerder"
+msgstr ""
 
 #: mpan/mpan:141
 msgid "Help"
 msgstr "Hulp"
 
 #: mpan/mpan:142
-#, fuzzy
 msgid "About"
-msgstr "&Info"
+msgstr "Info"
 
 #: mpan/mpan:147
-#, fuzzy
 msgid "Quit"
-msgstr "A&fsluiten"
+msgstr "Afsluiten"
 
 #: mpan/mpan:169
 msgid ""

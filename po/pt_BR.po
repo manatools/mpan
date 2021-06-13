@@ -8,6 +8,7 @@
 # 3f37d448649cd548fa5a733e33387c2a_dee4ccf, 2021
 # Yuri Chornoivan <yurchor@ukr.net>, 2021
 # danilo freitas <danilo.gomes.freitas@gmail.com>, 2021
+# Michael Martins <michaelfm21@gmail.com>, 2021
 #
 #, fuzzy
 msgid ""
@@ -16,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-06 19:44+0300\n"
 "PO-Revision-Date: 2021-04-07 19:27+0000\n"
-"Last-Translator: danilo freitas <danilo.gomes.freitas@gmail.com>, 2021\n"
+"Last-Translator: Michael Martins <michaelfm21@gmail.com>, 2021\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/MageiaLinux/"
 "teams/9361/pt_BR/)\n"
 "Language: pt_BR\n"
@@ -51,7 +52,7 @@ msgstr "Rede & Internet"
 
 #: conf/categories.conf.in.h:7
 msgid "Security"
-msgstr "Segurânça"
+msgstr "Segurança"
 
 #: conf/categories.conf.in.h:8
 msgid "Boot"

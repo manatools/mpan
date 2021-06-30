@@ -62,7 +62,7 @@ msgstr "mpan - Mageia ManaTools-bedieningspaneel"
 
 #: extras/mpan.desktop.in.h:2
 msgid "ManaTools panel - application launcher"
-msgstr "ManaTools-paneel - applicatiestarter"
+msgstr "ManaTools-paneel - programmastarter"
 
 #: mpan/mpan:47
 msgid "System mode"

@@ -1,24 +1,24 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.7)  #-#-#-#-#
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
-# This file is distributed under the same license as the ManaTools package.
-#
-# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the mpan package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# zwpwjwtz <zwpwjwtz@126.com>, 2016-2017
+# Yuri Chornoivan <yurchor@ukr.net>, 2021
+# Xiaobo Zhou <zhouxiaobo.500@gmail.com>, 2021
+# zwpwjwtz <zwpwjwtz@126.com>, 2021
+# Dmitry <dmitrydmitry761@gmail.com>, 2021
+#
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mageia\n"
+"Project-Id-Version: mpan 0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-06 19:44+0300\n"
-"PO-Revision-Date: 2017-10-22 13:41+0000\n"
-"Last-Translator: zwpwjwtz <zwpwjwtz@126.com>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/MageiaLinux/mageia/"
-"language/zh_CN/)\n"
+"PO-Revision-Date: 2021-04-07 19:27+0000\n"
+"Last-Translator: Dmitry <dmitrydmitry761@gmail.com>, 2021\n"
+"Language-Team: Chinese (China) (https://www.transifex.com/MageiaLinux/"
+"teams/9361/zh_CN/)\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -66,41 +66,35 @@ msgid "ManaTools panel - application launcher"
 msgstr "ManaTools 面板 - 程序启动器"
 
 #: mpan/mpan:47
-#, fuzzy
 msgid "System mode"
-msgstr "系统"
+msgstr "系统模式"
 
 #: mpan/mpan:49
-#, fuzzy
 msgid "User mode"
-msgstr "用户名"
+msgstr "用户模式"
 
 #: mpan/mpan:50
-#, fuzzy
 msgid "ManaTools panel"
-msgstr "ManaTools 代理管理器"
+msgstr "ManaTools 面板"
 
 #: mpan/mpan:72
-#, fuzzy
 msgid "Manatools panel - {}"
-msgstr "ManaTools 代理管理器"
+msgstr "Manatools 面板 - {}"
 
 #: mpan/mpan:141
 msgid "Help"
 msgstr "帮助"
 
 #: mpan/mpan:142
-#, fuzzy
 msgid "About"
-msgstr "关于(&A)"
+msgstr "关于"
 
 #: mpan/mpan:147
-#, fuzzy
 msgid "Quit"
-msgstr "退出(&Q)"
+msgstr "退出"
 
 #: mpan/mpan:169
 msgid ""
 "Manatools panel provides an interface for launching modules which are part "
 "of the manatools."
-msgstr ""
+msgstr "Manatools 面板提供了一个用于启动作为 manatools 一部分的模块的界面。"

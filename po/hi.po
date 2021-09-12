@@ -4,8 +4,8 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Panwar108 <caspian7pena@gmail.com>, 2021
 # Yuri Chornoivan <yurchor@ukr.net>, 2021
+# Panwar108 <caspian7pena@gmail.com>, 2021
 #
 #, fuzzy
 msgid ""
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-06 19:44+0300\n"
 "PO-Revision-Date: 2021-04-07 19:27+0000\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>, 2021\n"
+"Last-Translator: Panwar108 <caspian7pena@gmail.com>, 2021\n"
 "Language-Team: Hindi (https://www.transifex.com/MageiaLinux/teams/9361/hi/)\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
@@ -28,23 +28,23 @@ msgstr "सॉफ्टवेयर प्रबंधन"
 
 #: conf/categories.conf.in.h:2
 msgid "Install and Remove Software"
-msgstr ""
+msgstr "सॉफ्टवेयर इंस्टॉल करें व हटाएँ"
 
 #: conf/categories.conf.in.h:3
 msgid "Update your System"
-msgstr ""
+msgstr "सिस्टम अपडेट करें"
 
 #: conf/categories.conf.in.h:4
 msgid "Configure media sources for install and update"
-msgstr ""
+msgstr "इंस्टॉल व अपडेट हेतु मीडिया स्रोत विन्यस्त करें"
 
 #: conf/categories.conf.in.h:5
 msgid "System"
-msgstr "तंत्र"
+msgstr "सिस्टम"
 
 #: conf/categories.conf.in.h:6
 msgid "Network &amp;&amp; Internet"
-msgstr ""
+msgstr "नेटवर्क &amp;&amp; इंटरनेट"
 
 #: conf/categories.conf.in.h:7
 msgid "Security"
@@ -56,31 +56,31 @@ msgstr "बूट"
 
 #: extras/mpan.desktop.in.h:1
 msgid "mpan - Mageia ManaTools Control Panel"
-msgstr ""
+msgstr "mpan - मजिया ManaTools नियंत्रण पैनल"
 
 #: extras/mpan.desktop.in.h:2
 msgid "ManaTools panel - application launcher"
-msgstr ""
+msgstr "ManaTools पैनल - अनुप्रयोग लॉन्चर"
 
 #: mpan/mpan:47
 msgid "System mode"
-msgstr "तंत्र विधा"
+msgstr "सिस्टम मोड"
 
 #: mpan/mpan:49
 msgid "User mode"
-msgstr ""
+msgstr "उपयोक्ता मोड"
 
 #: mpan/mpan:50
 msgid "ManaTools panel"
-msgstr ""
+msgstr "ManaTools पैनल"
 
 #: mpan/mpan:72
 msgid "Manatools panel - {}"
-msgstr ""
+msgstr "Manatools पैनल - {}"
 
 #: mpan/mpan:141
 msgid "Help"
-msgstr "मदद"
+msgstr "सहायता"
 
 #: mpan/mpan:142
 msgid "About"
@@ -95,3 +95,5 @@ msgid ""
 "Manatools panel provides an interface for launching modules which are part "
 "of the manatools."
 msgstr ""
+"Manatools पैनल एक अंतरफलक प्रदान करता है जिसके द्वारा manatools के अनुखंडों को लॉन्च "
+"करना संभव है।"

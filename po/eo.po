@@ -1,23 +1,22 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.7)  #-#-#-#-#
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
-# This file is distributed under the same license as the ManaTools package.
-#
-# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the mpan package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
+# Yuri Chornoivan <yurchor@ukr.net>, 2021
+# Gilberto F. da Silva, 2022
+#
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mageia\n"
+"Project-Id-Version: mpan 0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-06 19:44+0300\n"
-"PO-Revision-Date: 2018-05-30 00:54+0000\n"
-"Last-Translator: Gilberto F da Silva <gfs1989@gmx.net>\n"
-"Language-Team: Esperanto (http://www.transifex.com/MageiaLinux/mageia/"
-"language/eo/)\n"
+"PO-Revision-Date: 2021-04-07 19:27+0000\n"
+"Last-Translator: Gilberto F. da Silva, 2022\n"
+"Language-Team: Esperanto (https://www.transifex.com/MageiaLinux/teams/9361/"
+"eo/)\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,15 +25,15 @@ msgstr ""
 
 #: conf/categories.conf.in.h:1
 msgid "Software Management"
-msgstr ""
+msgstr "Programar-mastrumilo"
 
 #: conf/categories.conf.in.h:2
 msgid "Install and Remove Software"
-msgstr ""
+msgstr "Instali kaj forigi programon"
 
 #: conf/categories.conf.in.h:3
 msgid "Update your System"
-msgstr ""
+msgstr "Ĝisdatigi Vian Sistemon"
 
 #: conf/categories.conf.in.h:4
 msgid "Configure media sources for install and update"
@@ -42,15 +41,15 @@ msgstr "Konfiguri la datenportilojn por instalo kaj ĝisdatigo"
 
 #: conf/categories.conf.in.h:5
 msgid "System"
-msgstr ""
+msgstr "Sistemo"
 
 #: conf/categories.conf.in.h:6
 msgid "Network &amp;&amp; Internet"
-msgstr ""
+msgstr "Reto &amp; &amp; Interreto"
 
 #: conf/categories.conf.in.h:7
 msgid "Security"
-msgstr ""
+msgstr "Sekureco"
 
 #: conf/categories.conf.in.h:8
 msgid "Boot"
@@ -58,43 +57,44 @@ msgstr "Startado"
 
 #: extras/mpan.desktop.in.h:1
 msgid "mpan - Mageia ManaTools Control Panel"
-msgstr ""
+msgstr "mpan - Mageia ManaTools Kontrola Panelo"
 
 #: extras/mpan.desktop.in.h:2
 msgid "ManaTools panel - application launcher"
-msgstr ""
+msgstr "Panelo de ManaTools - Lanĉilo de Apliko"
 
 #: mpan/mpan:47
 msgid "System mode"
-msgstr ""
+msgstr "Sistema modalo"
 
 #: mpan/mpan:49
-#, fuzzy
 msgid "User mode"
-msgstr "Salutnomo :"
+msgstr "Uzanto-reĝimo"
 
 #: mpan/mpan:50
 msgid "ManaTools panel"
-msgstr ""
+msgstr "Manatools-panelo"
 
 #: mpan/mpan:72
 msgid "Manatools panel - {}"
-msgstr ""
+msgstr "Manatools-panelo - {}"
 
 #: mpan/mpan:141
 msgid "Help"
-msgstr ""
+msgstr "Helpo"
 
 #: mpan/mpan:142
 msgid "About"
-msgstr ""
+msgstr "Pri"
 
 #: mpan/mpan:147
 msgid "Quit"
-msgstr ""
+msgstr "Forlasi"
 
 #: mpan/mpan:169
 msgid ""
 "Manatools panel provides an interface for launching modules which are part "
 "of the manatools."
 msgstr ""
+"Manatools-panelo provizas interfacon por lanĉado de moduloj, kiuj estas "
+"parto de la Manatools."

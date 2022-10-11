@@ -27,10 +27,9 @@ import yui
 import gettext
 import os
 import glob
-import subprocess
 import importlib
 import logging
-from configreader import ConfigReader
+from mpan.configreader import ConfigReader
 
 ######################################################################
 ## 

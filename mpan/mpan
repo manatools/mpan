@@ -55,11 +55,13 @@ class MpDialog(basedialog.BaseDialog):
         widget: the pushbutton for the category
         modules: a tuple which contains a collection of modules information
         Each element of the _modules tuple is a dictionnary with:
+        order
         title
         icon
         launcher or class 
         
         _modules is a collection of information on modules. It is build when scaning the categories. Each entry contains a dictionnary with:
+        order
         title
         icon
         launcher or class 
@@ -104,8 +106,8 @@ class MpDialog(basedialog.BaseDialog):
         #menu1.rebuildMenuTree()
         #self.eventManager.addMenuEvent(qm, self.onQuitEvent)
 
-        bannerfile = os.path.join(self.iconsPath[0], 'images', 'Logo_big_dark.png')
-        background = os.path.join(self.iconsPath[0], 'images', 'background_dark.png')
+        bannerfile = self.fullIconPath('Logo_big_dark.png')
+        background = self.fullIconPath('background_dark.png')
         bannerMinSize = self.factory.createMinSize(mainLayout, 60, 5)
         bannerMinSize.setBackgroundPixmap(background)
         center = self.factory.createHCenter(bannerMinSize)
@@ -121,7 +123,7 @@ class MpDialog(basedialog.BaseDialog):
         self.rightPane = self.factory.createHBox(rpMinSize)
         #backgroundfile = "/usr/share/mcc/themes/default/left-background.png"
         #leftPanelMinSize.setBackgroundPixmap(backgroundfile)
-        self.rightPaneList = self.factory.createSelectionBox(self.rightPane,"")
+        self.rightPaneList = self.factory.createTree(self.rightPane,"")
         self.rightPaneList.setNotify()
         self.eventManager.addWidgetEvent(self.rightPaneList, self.onModuleSelected, True)
         self.leftPane = self.factory.createVBox(leftPanelMinSize)
@@ -139,8 +141,7 @@ class MpDialog(basedialog.BaseDialog):
         self.refreshPane()
 
         menuHelp = self.factory.createMenuButton(bottomLayout, _("Help"))
-        qa = yui.YMenuItem(_("About"))
-        menuHelp.addItem(qa)
+        qa = menuHelp.addItem(_("About"))
         menuHelp.rebuildMenuTree()
         self.eventManager.addMenuEvent(qa, self.onAboutEvent)
         
@@ -188,7 +189,7 @@ class MpDialog(basedialog.BaseDialog):
                 i = 0
                 for module in self._modules :
                     if module['category'] == category['widget'] :
-                        modButton = yui.YItem(module['title'], module['icon'], False)
+                        modButton = yui.YTreeItem(module['title'], self.fullIconPath(module['icon']), False)
                         modButton.this.own(False)
                         #self.eventManager.addWidgetEvent(modButton, self.onModuleSelected, True)
                         collection.push_back(modButton)
@@ -227,6 +228,8 @@ class MpDialog(basedialog.BaseDialog):
                 tmp['title'] = _(tmp['title'])
                 logging.debug("Load categories: title content is << %s >>", tmp['title']);
                 tmpCat = self._getCategory(tmp['title'])
+                tmp['icon'] = self.fullIconPath(tmp['icon'])
+                logging.debug("Icon path content is << %s >>", tmp['icon']);
                 if (tmpCat == None) :
                     catItem = yui.YTreeItem( tmp['title'], tmp['icon'])
                     catItem.this.own(False)
@@ -258,6 +261,8 @@ class MpDialog(basedialog.BaseDialog):
             self._categories[0]['active'] = True
 
     def fullIconPath(self, icon):
+        if icon is None:   
+            return ""            
         if icon.startswith('/'):
             if os.path.exists(icon):
                 return icon
@@ -265,6 +270,8 @@ class MpDialog(basedialog.BaseDialog):
                 return ""
         for path in self.iconsPath:
             logging.debug(f"Relative path for application icon: {icon}" )
+            if not icon.endswith('.png'):
+                icon = icon + ".png"
             path = os.path.join(path, icon)
             if os.path.exists(path):
                 logging.debug(f"Found {path}")
@@ -389,7 +396,7 @@ class MpDialog(basedialog.BaseDialog):
         '''
         self.backupTitle = yui.YUI.app().applicationTitle()
         yui.YUI.app().setApplicationTitle(self._title)
-        yui.YUI.app().setApplicationIcon("/usr/share/icons/mpan.png")
+        yui.YUI.app().setApplicationIcon(self.fullIconPath("mpan.png"))
         logging.debug("starting")
 
         self._setupUI()

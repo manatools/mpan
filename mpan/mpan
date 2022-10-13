@@ -113,10 +113,10 @@ class MpDialog(basedialog.BaseDialog):
         self.factory.createImage(center, bannerfile)
         mylayout = self.factory.createHBox(mainLayout)
         #create left Panel Frame no need to add a label for title
-        leftPanelMinSize = self.factory.createMinSize(mylayout, 40, 15)
+        leftPanelMinSize = self.factory.createMinSize(mylayout, 35, 15)
         #create right Panel Frame no need to add a label for title (use setLabel when module changes)
         rpVbox =  self.factory.createVBox(mylayout)
-        rpMinSize = self.factory.createMinSize(rpVbox, 40, 15)
+        rpMinSize = self.factory.createMinSize(rpVbox, 60, 15)
         bottomLayout =  self.factory.createHBox(mainLayout)
 
         self.rightPane = self.factory.createHBox(rpMinSize)
@@ -187,6 +187,7 @@ class MpDialog(basedialog.BaseDialog):
                 rpvbox1.setSize(50, 70)
                 i = 0
                 for module in self._modules :
+                    logging.debug(f"refreshPane, module found: {module['title']}")
                     if module['category'] == category['widget'] :
                         modButton = yui.YTreeItem(module['title'], self.fullIconPath(module['icon']), False)
                         modButton.this.own(False)
@@ -216,7 +217,7 @@ class MpDialog(basedialog.BaseDialog):
         l = glob.glob(os.path.join(directory,"*.conf"))
         for i in l:
             if os.path.isfile(i) : categoryFiles.append(i)
-
+        logging.debug(self.configPathName)
         collection = yui.YItemCollection()
         for fileName in categoryFiles :
             logging.info("Parsing category file %s"% fileName)

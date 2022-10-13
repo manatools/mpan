@@ -71,7 +71,8 @@ install(DIRECTORY ${CMAKE_SOURCE_DIR}/conf/ DESTINATION ${CONFIG_FILES_SUBDIR})
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/extras/images DESTINATION ${CMAKE_INSTALL_IMAGESROOTDIR} )
 
 # Buils configuration file
-file(WRITE ${CMAKE_BINARY_DIR}/mpan.yaml "log_level : debug\nTheme :\n    path : ${CMAKE_INSTALL_IMAGESROOTDIR}/images,/usr/share/mcc/themes/default\nConfiguration :\n    path : ${CONFIG_FILES_DIR}")
+file(WRITE ${CMAKE_BINARY_DIR}/mpan.yaml "log_level : debug\nTheme :\n
+	path : ${CMAKE_INSTALL_IMAGESROOTDIR}/images,/usr/share/mcc/themes/default,/usr/share/icons/large,/usr/share/icons/hicolor/48x48/apps\nConfiguration :\n    path : ${CONFIG_FILES_DIR}")
 # configure_file(${CMAKE_BINARY_DIR}/mpan.yaml ${CONFIG_FILES_DIR}/mpan.yaml @ONLY)
 install(FILES ${CMAKE_BINARY_DIR}/mpan.yaml DESTINATION ${CONFIG_FILES_DIR})
 # install(FILES ${CMAKE_SOURCE_DIR}/extras/mpan.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)

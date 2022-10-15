@@ -1,24 +1,24 @@
-#!/usr/bin/env python3 
+#!/usr/bin/env python3
 #  mpan
-#  
+#
 #  Copyright 2018 Papoteur
-#  
+#
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
 #  the Free Software Foundation; either version 3 of the License, or
 #  (at your option) any later version.
-#  
+#
 #  This program is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
 #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #  GNU General Public License for more details.
-#  
+#
 #  You should have received a copy of the GNU General Public License
 #  along with this program; if not, write to the Free Software
 #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 #  MA 02110-1301, USA.
-#  
-#  
+#
+#
 
 import manatools.ui.common as common
 import manatools.ui.basedialog as basedialog
@@ -32,22 +32,23 @@ import logging
 from mpan.configreader import ConfigReader
 
 ######################################################################
-## 
+##
 ##  Mpan
-## 
+##
 ######################################################################
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
+
 class MpDialog(basedialog.BaseDialog):
     def __init__(self, init_cat):
-        if os.getuid() == 0 :
+        if os.getuid() == 0:
             space = _("System mode")
-        else :
+        else:
             space = _("User mode")
         self._application_name = _("ManaTools panel")
-        ''' _categories stores information on categories. information are loaded from config files
+        """ _categories stores information on categories. information are loaded from config files
         Entries are:
         title
         icon
@@ -66,257 +67,281 @@ class MpDialog(basedialog.BaseDialog):
         launcher or class 
         category : the widget of the category which contains this module
         widget: the push button widget
-        '''
+        """
         self._categories = []
         self.init_cat = init_cat
         self._modules = []
-        self.dialog = basedialog.BaseDialog.__init__(self, _("Manatools panel - {}").format(space), "", basedialog.DialogType.POPUP, 100, 20)
+        self.dialog = basedialog.BaseDialog.__init__(
+            self,
+            _("Manatools panel - {}").format(space),
+            "",
+            basedialog.DialogType.POPUP,
+            100,
+            20,
+        )
         # Load configuration
-        configuration = config.AppConfig('mpan')
+        configuration = config.AppConfig("mpan")
         self.params = configuration.systemSettings
-        self.iconsPath = self.params['Theme']['path'].split(',')
-        self.configPathName = self.params['Configuration']['path']
+        self.iconsPath = self.params["Theme"]["path"].split(",")
+        self.configPathName = self.params["Configuration"]["path"]
         try:
-            log_lvl = getattr(logging, self.params['log_level'].upper())
+            log_lvl = getattr(logging, self.params["log_level"].upper())
         except:
             log_lvl = logging.WARNING
-        logging.basicConfig(filename='mpan.log', format='%(asctime)s [%(name)s](%(levelname)s) %(message)s',level=log_lvl)
+        logging.basicConfig(
+            filename="mpan.log",
+            format="%(asctime)s [%(name)s](%(levelname)s) %(message)s",
+            level=log_lvl,
+        )
 
     def UIlayout(self, layout):
-        '''
+        """
         layout to setup UI for Manatools panel
-        '''
+        """
         # used to return information of which module has been selected, to launch it
         self.selectedModule = ""
         self.selectedLauncher = ""
         self.selectedModuleClass = ""
         self.selectedCategory = ""
-        
-        self.settings = {'title':self._application_name,'category_title':""}
-        self.title = self.settings['title']
+
+        self.settings = {"title": self._application_name, "category_title": ""}
+        self.title = self.settings["title"]
 
         mainLayout = self.factory.createVBox(layout)
-        #menuLayout = self.factory.createHBox(mainLayout)
-            ## Menu File
+        # menuLayout = self.factory.createHBox(mainLayout)
+        ## Menu File
         # Let's test a Menu widget
-        #menu1 = self.factory.createMenuButton(self.factory.createLeft(menuLayout), _("File"))
-        #qm = yui.YMenuItem(_("Quit"))
-        #menu1.addItem(qm)
-        #menu1.rebuildMenuTree()
-        #self.eventManager.addMenuEvent(qm, self.onQuitEvent)
+        # menu1 = self.factory.createMenuButton(self.factory.createLeft(menuLayout), _("File"))
+        # qm = yui.YMenuItem(_("Quit"))
+        # menu1.addItem(qm)
+        # menu1.rebuildMenuTree()
+        # self.eventManager.addMenuEvent(qm, self.onQuitEvent)
 
-        bannerfile = self.fullIconPath('Logo_big_dark.png')
-        background = self.fullIconPath('background_dark.png')
+        bannerfile = self.fullIconPath("Logo_big_dark.png")
+        background = self.fullIconPath("background_dark.png")
         bannerMinSize = self.factory.createMinSize(mainLayout, 60, 5)
         bannerMinSize.setBackgroundPixmap(background)
         center = self.factory.createHCenter(bannerMinSize)
         self.factory.createImage(center, bannerfile)
         mylayout = self.factory.createHBox(mainLayout)
-        #create left Panel Frame no need to add a label for title
+        # create left Panel Frame no need to add a label for title
         leftPanelMinSize = self.factory.createMinSize(mylayout, 35, 15)
-        #create right Panel Frame no need to add a label for title (use setLabel when module changes)
-        rpVbox =  self.factory.createVBox(mylayout)
+        # create right Panel Frame no need to add a label for title (use setLabel when module changes)
+        rpVbox = self.factory.createVBox(mylayout)
         rpMinSize = self.factory.createMinSize(rpVbox, 60, 15)
-        bottomLayout =  self.factory.createHBox(mainLayout)
+        bottomLayout = self.factory.createHBox(mainLayout)
 
         self.rightPane = self.factory.createHBox(rpMinSize)
-        #backgroundfile = "/usr/share/mcc/themes/default/left-background.png"
-        #leftPanelMinSize.setBackgroundPixmap(backgroundfile)
-        self.rightPaneList = self.factory.createTree(self.rightPane,"")
+        # backgroundfile = "/usr/share/mcc/themes/default/left-background.png"
+        # leftPanelMinSize.setBackgroundPixmap(backgroundfile)
+        self.rightPaneList = self.factory.createTree(self.rightPane, "")
         self.rightPaneList.setNotify()
-        self.eventManager.addWidgetEvent(self.rightPaneList, self.onModuleSelected, True)
+        self.eventManager.addWidgetEvent(
+            self.rightPaneList, self.onModuleSelected, True
+        )
         self.leftPane = self.factory.createVBox(leftPanelMinSize)
-        
-        self.tree = self.factory.createTree(self.leftPane, '')
+
+        self.tree = self.factory.createTree(self.leftPane, "")
         self.tree.setNotify(True)
-        self.tree.setWeight(0,1)
+        self.tree.setWeight(0, 1)
         self.loadFiles()
         # Set the category to the last selected one.
         if self.init_cat:
-            self.tree.selectItem(self._getCategory(self.init_cat)['widget'], True)
+            self.tree.selectItem(self._getCategory(self.init_cat)["widget"], True)
         # Add the command to the tree
         self.eventManager.addWidgetEvent(self.tree, self.onCategorySelected, True)
-        logging.debug('call refresh pane')
+        logging.debug("call refresh pane")
 
         menuHelp = self.factory.createMenuButton(bottomLayout, _("Help"))
         qa = menuHelp.addItem(_("About"))
         menuHelp.rebuildMenuTree()
         self.eventManager.addMenuEvent(qa, self.onAboutEvent)
-        
-        closeButton = self.factory.createPushButton(self.factory.createRight(bottomLayout), _("Quit"))
+
+        closeButton = self.factory.createPushButton(
+            self.factory.createRight(bottomLayout), _("Quit")
+        )
         self.eventManager.addWidgetEvent(closeButton, self.onQuitEvent)
-        closeButton.setIcon(os.path.join(self.iconsPath[0],'quit.png'))
-        
-     # End Dialog layout
+        closeButton.setIcon(os.path.join(self.iconsPath[0], "quit.png"))
 
-    def onCancelEvent(self) :
-        print ("Got a cancel event")
+    # End Dialog layout
 
-    def onQuitEvent(self) :
+    def onCancelEvent(self):
+        print("Got a cancel event")
+
+    def onQuitEvent(self):
         logging.info("Quit button pressed")
-        # BaseDialog needs to force to exit the handle event loop 
+        # BaseDialog needs to force to exit the handle event loop
         self.ExitLoop()
 
-    def onAboutEvent(self) :
-      ok = common.AboutDialog({
-            'name' : self._application_name,
-            'dialog_mode' : common.AboutDialogMode.TABBED,
-            'version' : "0.1.0",
-            'credits' :"Credits 2018-2020 Papoteur",
-            'license' : 'GPLv3',
-            'authors' : 'Papoteur &lt;papoteur@mageia.org&gt;',
-            'description' : _("Manatools panel provides an interface for launching modules which are part of the manatools."),
-      })
+    def onAboutEvent(self):
+        ok = common.AboutDialog(
+            {
+                "name": self._application_name,
+                "dialog_mode": common.AboutDialogMode.TABBED,
+                "version": "0.1.0",
+                "credits": "Credits 2018-2020 Papoteur",
+                "license": "GPLv3",
+                "authors": "Papoteur &lt;papoteur@mageia.org&gt;",
+                "description": _(
+                    "Manatools panel provides an interface for launching modules which are part of the manatools."
+                ),
+            }
+        )
 
     def refreshPane(self):
-        logging.debug('refreshPane')
-        #TODO Check that it is still useful
+        logging.debug("refreshPane")
+        # TODO Check that it is still useful
         for i in range(0, len(self._modules)):
-            if 'widget' in self._modules[i].keys():
-                if self._modules[i]['widget'] :
-                    self._modules[i]['widget'] = None
+            if "widget" in self._modules[i].keys():
+                if self._modules[i]["widget"]:
+                    self._modules[i]["widget"] = None
         collection = yui.YItemCollection()
         for category in self._categories:
-            if category['active']:
+            if category["active"]:
                 # Refresh the title with the selected category's name
-                logging.debug('refreshPane, in active category')
+                logging.debug("refreshPane, in active category")
                 if self._running:
                     self.rightPaneList.deleteAllItems()
-                self.rightPaneList.setLabel(category['title'])
+                self.rightPaneList.setLabel(category["title"])
                 rpvbox1 = self.factory.createVBox(self.rightPane)
                 rpvbox1.setSize(50, 70)
                 i = 0
-                for module in self._modules :
+                for module in self._modules:
                     logging.debug(f"refreshPane, module found: {module['title']}")
-                    if module['category'] == category['widget'] :
-                        modButton = yui.YTreeItem(module['title'], self.fullIconPath(module['icon']), False)
+                    if module["category"] == category["widget"]:
+                        modButton = yui.YTreeItem(
+                            module["title"], self.fullIconPath(module["icon"]), False
+                        )
                         modButton.this.own(False)
-                        #self.eventManager.addWidgetEvent(modButton, self.onModuleSelected, True)
+                        # self.eventManager.addWidgetEvent(modButton, self.onModuleSelected, True)
                         collection.push_back(modButton)
-                        self._modules[i]['widget'] = modButton
+                        self._modules[i]["widget"] = modButton
                     i += 1
                 break
-        #Add the command to the list
+        # Add the command to the list
         self.rightPaneList.addItems(collection)
         self.dialog.recalcLayout()
-        logging.debug('End refresh')
+        logging.debug("End refresh")
 
     def loadFiles(self):
-        '''
+        """
         Look for categories configuration files and populate _categories with data
         Build category buttons
-        '''
+        """
         # category files
-        #TODO Use common module to provide config directory
-        fileName = os.path.join(self.configPathName , "categories.conf")
+        # TODO Use common module to provide config directory
+        fileName = os.path.join(self.configPathName, "categories.conf")
 
         # configuration file dir
-        directory = os.path.join(self.configPathName ,  "categories.conf.d")
+        directory = os.path.join(self.configPathName, "categories.conf.d")
 
         categoryFiles = [fileName]
-        l = glob.glob(os.path.join(directory,"*.conf"))
+        l = glob.glob(os.path.join(directory, "*.conf"))
         for i in l:
-            if os.path.isfile(i) : categoryFiles.append(i)
+            if os.path.isfile(i):
+                categoryFiles.append(i)
         logging.debug(self.configPathName)
         collection = yui.YItemCollection()
-        for fileName in categoryFiles :
-            logging.info("Parsing category file %s"% fileName)
+        for fileName in categoryFiles:
+            logging.info("Parsing category file %s" % fileName)
             inFile = ConfigReader(fileName)
             categories = inFile.read()
             tmpCat = None
             for tmp in categories:
-                tmp['title'] = _(tmp['title'])
-                logging.debug("Load categories: title content is << %s >>", tmp['title']);
-                tmpCat = self._getCategory(tmp['title'])
-                tmp['icon'] = self.fullIconPath(tmp['icon'])
-                logging.debug("Icon path content is << %s >>", tmp['icon']);
-                if (tmpCat == None) :
-                    catItem = yui.YTreeItem( tmp['title'], tmp['icon'])
+                tmp["title"] = _(tmp["title"])
+                logging.debug(
+                    "Load categories: title content is << %s >>", tmp["title"]
+                )
+                tmpCat = self._getCategory(tmp["title"])
+                tmp["icon"] = self.fullIconPath(tmp["icon"])
+                logging.debug("Icon path content is << %s >>", tmp["icon"])
+                if tmpCat == None:
+                    catItem = yui.YTreeItem(tmp["title"], tmp["icon"])
                     catItem.this.own(False)
-                    #childItem = yui.YTreeItem( catItem, "Child", self.fullIconPath(tmp['icon']))
-                    #childItem.this.own(False)
+                    # childItem = yui.YTreeItem( catItem, "Child", self.fullIconPath(tmp['icon']))
+                    # childItem.this.own(False)
                     collection.push_back(catItem)
-                    tmp['widget'] = catItem
+                    tmp["widget"] = catItem
                     self._categories.append(tmp)
                     tmpCat = tmp
-                for module in tmp['modules']:
-                    if 'title' in module.keys():
-                        module['title'] = _(module['title'])
-                        tmpMod = self._getModule(module['title'])
-                        if tmpMod == None :
-                            tmpMod = self._loadModule(module, tmpCat['widget'])
-                    elif 'class' in module.keys():
-                        #TODO manage perl modules
+                for module in tmp["modules"]:
+                    if "title" in module.keys():
+                        module["title"] = _(module["title"])
+                        tmpMod = self._getModule(module["title"])
+                        if tmpMod == None:
+                            tmpMod = self._loadModule(module, tmpCat["widget"])
+                    elif "class" in module.keys():
+                        # TODO manage perl modules
                         pass
-                    
+
         logging.debug("Building tree")
         self.tree.addItems(collection)
-        self._modules.sort(key=lambda module: module['order'])
+        self._modules.sort(key=lambda module: module["order"])
         # Set the active category as the first one
         if self.init_cat:
             for category in self._categories:
-                if category['title'] == self.init_cat:
-                    category['active'] = True
+                if category["title"] == self.init_cat:
+                    category["active"] = True
         else:
-            self._categories[0]['active'] = True
+            self._categories[0]["active"] = True
 
     def fullIconPath(self, icon):
-        if icon is None:   
-            return ""            
-        if icon.startswith('/'):
+        if icon is None:
+            return ""
+        if icon.startswith("/"):
             if os.path.exists(icon):
                 return icon
-            else:               
+            else:
                 return ""
         for path in self.iconsPath:
-            logging.debug(f"Relative path for application icon: {icon}" )
-            if not icon.endswith('.png'):
+            logging.debug(f"Relative path for application icon: {icon}")
+            if not icon.endswith(".png"):
                 icon = icon + ".png"
             path = os.path.join(path, icon)
             if os.path.exists(path):
                 logging.debug(f"Found {path}")
                 return path
-            else:                              
-                logging.debug(f"Icon {path} doesn't exist" )
-            logging.info(f"Icon {icon} doesn't exist" )
+            else:
+                logging.debug(f"Icon {path} doesn't exist")
+            logging.info(f"Icon {icon} doesn't exist")
         return ""
-        
+
     def catLoaded(self, category):
-        '''
+        """
         Look for a category passed as argument if present or not
         INPUT
             A dictionnary with 'name' as key
-        OUTPUT 
+        OUTPUT
             Bolean, True if the given category is already recorded
-        '''
+        """
         present = False
-        if (not category):
+        if not category:
             return present
         for cat in self._categories:
-            if cat['title'] == category['title'] :
+            if cat["title"] == category["title"]:
                 present = True
                 break
         return present
 
     def modLoaded(self, module):
-        '''
+        """
         Look for a module passed as argument if present or not
         INPUT
             A dictionnary with 'title' as key
-        OUTPUT 
+        OUTPUT
             Bolean, True if the given module is already recorded
-        '''
+        """
         present = False
-        if (not module):
+        if not module:
             return present
         for mod in self._modules:
-            if mod['title'] == module :
+            if mod["title"] == module:
                 present = True
                 break
         return present
 
     def _getCategory(self, name):
-        '''
+        """
         INPUT
             name:     category name
 
@@ -328,72 +353,74 @@ class MpDialog(basedialog.BaseDialog):
 
             This method looks for the given category name and returns
             the real object.
-        '''
-        for category in self._categories :
-            if (category['title'] == name) :
+        """
+        for category in self._categories:
+            if category["title"] == name:
                 return category
         return None
 
     def _getModule(self, name):
-        '''
- INPUT
-    name:     module title
+        """
+        INPUT
+           name:     module title
 
- OUTPUT
+        OUTPUT
 
-    module: module object if exists, else None
+           module: module object if exists, else None
 
- DESCRIPTION
+        DESCRIPTION
 
-    This method looks for the given category name and returns
-    the real object.
-        '''
-        for module in self._modules :
-            if (module['title'] == name) :
+           This method looks for the given category name and returns
+           the real object.
+        """
+        for module in self._modules:
+            if module["title"] == name:
                 return module
         return None
-        
+
     def onCategorySelected(self, widget):
         i = 0
         item = self.tree.currentItem()
-        for category in self._categories :
-            if (category['widget'] == item) :
-                logging.info("You chose category <<%s>>"%category['title'])
-                self._categories[i]['active'] = True
-            else: 
-                 self._categories[i]['active'] = False
-            i +=1
+        for category in self._categories:
+            if category["widget"] == item:
+                logging.info("You chose category <<%s>>" % category["title"])
+                self._categories[i]["active"] = True
+            else:
+                self._categories[i]["active"] = False
+            i += 1
         self.refreshPane()
 
-    def _loadModule(self,module,category):
-        if not self.modLoaded(module['title']):
-            module['category'] = category
+    def _loadModule(self, module, category):
+        if not self.modLoaded(module["title"]):
+            module["category"] = category
             self._modules.append(module)
 
     def onModuleSelected(self, item):
-            logging.debug("Module selected")
-            widget = self.rightPaneList.selectedItem()
-            for i in range(0, len(self._categories)):
-                if self._categories[i]['active'] == True:
-                    self.selectedCategory = self._categories[i]['title']
-            for module in self._modules :
-                if (module['widget'] == widget) :
-                    logging.info("You chose module <<%s>>"%module['title'])
-                    if "launcher" in module.keys() :
-                        self.selectedModule = module['launcher'].split('/')[-1]
-                        self.selectedLauncher = module['launcher']
-                    elif "class" in module.keys() :
-                        words = module['class'].split('.')
-                        self.selectedModule = words[0]
-                        for i in range(1, len(words)-1):
-                            self.selectedModule = '{0}.{1}'.format(self.selectedModule, words[i])
-                        self.selectedModuleClass = words[-1]
-                    self.ExitLoop()
+        logging.debug("Module selected")
+        widget = self.rightPaneList.selectedItem()
+        for i in range(0, len(self._categories)):
+            if self._categories[i]["active"] == True:
+                self.selectedCategory = self._categories[i]["title"]
+        for module in self._modules:
+            if module["widget"] == widget:
+                logging.info("You chose module <<%s>>" % module["title"])
+                if "launcher" in module.keys():
+                    self.selectedModule = module["launcher"].split("/")[-1]
+                    self.selectedLauncher = module["launcher"]
+                elif "class" in module.keys():
+                    words = module["class"].split(".")
+                    self.selectedModule = words[0]
+                    for i in range(1, len(words) - 1):
+                        self.selectedModule = "{0}.{1}".format(
+                            self.selectedModule, words[i]
+                        )
+                    self.selectedModuleClass = words[-1]
+                self.ExitLoop()
 
     def run(self):
-        '''
+        """
         run the Dialog
-        '''
+        """
         self.backupTitle = yui.YUI.app().applicationTitle()
         yui.YUI.app().setApplicationTitle(self._title)
         yui.YUI.app().setApplicationIcon(self.fullIconPath("mpan.png"))
@@ -401,36 +428,42 @@ class MpDialog(basedialog.BaseDialog):
 
         self._setupUI()
         self.refreshPane()
-        
+
         self._running = True
         logging.debug("Running")
         self._handleEvents()
 
-        #restore old application title
+        # restore old application title
         yui.YUI.app().setApplicationTitle(self.backupTitle)
 
         self.dialog.destroy()
         self.dialog = None
-        return self.selectedModule, self.selectedModuleClass, self.selectedLauncher, self.selectedCategory
+        return (
+            self.selectedModule,
+            self.selectedModuleClass,
+            self.selectedLauncher,
+            self.selectedCategory,
+        )
 
-if __name__ == '__main__':
-    gettext.install('mpan', localedir='/usr/share/locale')
+
+if __name__ == "__main__":
+    gettext.install("mpan", localedir="/usr/share/locale")
     cat = None
     while True:
         mp = MpDialog(cat)
         mod, modclass, launcher, cat = mp.run()
         if mod:
-            if modclass :
+            if modclass:
                 try:
                     module = importlib.import_module(mod)
-                    app = eval("module.%s()"%modclass)
+                    app = eval("module.%s()" % modclass)
                     app.run()
-                    logging.info("Exited module %s"%modclass)
+                    logging.info("Exited module %s" % modclass)
                 except Exception as e:
-                   message = "Exited module {} abnormally : {}".format(modclass, str(e))
+                    message = "Exited module {} abnormally : {}".format(
+                        modclass, str(e)
+                    )
             else:
                 os.system(launcher)
         else:
             break
-        
-

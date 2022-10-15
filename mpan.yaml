@@ -1,5 +1,0 @@
-log_level : debug
-Theme :
-    path : /usr/local/share/icons/manatools/images
-Configuration :
-    path : /usr/local/etc/mpan

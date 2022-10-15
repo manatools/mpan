@@ -137,7 +137,6 @@ class MpDialog(basedialog.BaseDialog):
         # Add the command to the tree
         self.eventManager.addWidgetEvent(self.tree, self.onCategorySelected, True)
         logging.debug('call refresh pane')
-        self.refreshPane()
 
         menuHelp = self.factory.createMenuButton(bottomLayout, _("Help"))
         qa = menuHelp.addItem(_("About"))
@@ -181,7 +180,8 @@ class MpDialog(basedialog.BaseDialog):
             if category['active']:
                 # Refresh the title with the selected category's name
                 logging.debug('refreshPane, in active category')
-                self.rightPaneList.deleteAllItems()
+                if self._running:
+                    self.rightPaneList.deleteAllItems()
                 self.rightPaneList.setLabel(category['title'])
                 rpvbox1 = self.factory.createVBox(self.rightPane)
                 rpvbox1.setSize(50, 70)
@@ -400,6 +400,7 @@ class MpDialog(basedialog.BaseDialog):
         logging.debug("starting")
 
         self._setupUI()
+        self.refreshPane()
         
         self._running = True
         logging.debug("Running")

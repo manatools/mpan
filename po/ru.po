@@ -6,7 +6,7 @@
 # Translators:
 # Yuri Chornoivan <yurchor@ukr.net>, 2021
 # AlexL <loginov.alex.valer@gmail.com>, 2021
-# Виктор, 2022
+# Виктор, 2023
 #
 #, fuzzy
 msgid ""
@@ -15,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-06 19:44+0300\n"
 "PO-Revision-Date: 2021-04-07 19:27+0000\n"
-"Last-Translator: Виктор, 2022\n"
+"Last-Translator: Виктор, 2023\n"
 "Language-Team: Russian (https://www.transifex.com/MageiaLinux/teams/9361/"
 "ru/)\n"
 "Language: ru\n"
@@ -76,7 +76,7 @@ msgstr "Режим пользователя"
 
 #: mpan/mpan:50
 msgid "ManaTools panel"
-msgstr ""
+msgstr "Панель ManaTools"
 
 #: mpan/mpan:72
 msgid "Manatools panel - {}"
@@ -99,3 +99,5 @@ msgid ""
 "Manatools panel provides an interface for launching modules which are part "
 "of the manatools."
 msgstr ""
+"Панель ManaTools предоставляет интерфейс для запуска модулей, входящих в "
+"состав ManaTools."

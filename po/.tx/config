@@ -1,7 +1,7 @@
 [main]
 host = https://www.transifex.com
 
-[mageia.mpan]
+[o:MageiaLinux:p:mageia:r:mpan]
 file_filter = <lang>.po
 source_file = mpan.pot
 source_lang = en

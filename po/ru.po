@@ -5,8 +5,8 @@
 #
 # Translators:
 # Yuri Chornoivan <yurchor@ukr.net>, 2021
-# AlexL <loginov.alex.valer@gmail.com>, 2021
-# Виктор, 2023
+# Victor, 2023
+# AlexL <loginov.alex.valer@gmail.com>, 2023
 #
 #, fuzzy
 msgid ""
@@ -15,8 +15,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-06 19:44+0300\n"
 "PO-Revision-Date: 2021-04-07 19:27+0000\n"
-"Last-Translator: Виктор, 2023\n"
-"Language-Team: Russian (https://www.transifex.com/MageiaLinux/teams/9361/"
+"Last-Translator: AlexL <loginov.alex.valer@gmail.com>, 2023\n"
+"Language-Team: Russian (https://app.transifex.com/MageiaLinux/teams/9361/"
 "ru/)\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -80,7 +80,7 @@ msgstr "Панель ManaTools"
 
 #: mpan/mpan:72
 msgid "Manatools panel - {}"
-msgstr ""
+msgstr "Панель Manatools - {}"
 
 #: mpan/mpan:141
 msgid "Help"

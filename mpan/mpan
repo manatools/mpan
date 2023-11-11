@@ -67,6 +67,7 @@ class MpDialog(basedialog.BaseDialog):
         launcher or class 
         category : the widget of the category which contains this module
         widget: the push button widget
+        order
         """
         self._categories = []
         self.init_cat = init_cat
@@ -161,7 +162,7 @@ class MpDialog(basedialog.BaseDialog):
             self.factory.createRight(bottomLayout), _("Quit")
         )
         self.eventManager.addWidgetEvent(closeButton, self.onQuitEvent)
-        closeButton.setIcon(os.path.join(self.iconsPath[0], "quit.png"))
+        closeButton.setIcon(os.path.join(self.fullIconPath('quit.png')))
 
     # End Dialog layout
 
@@ -189,8 +190,6 @@ class MpDialog(basedialog.BaseDialog):
         )
 
     def refreshPane(self):
-        logging.debug("refreshPane")
-        # TODO Check that it is still useful
         for i in range(0, len(self._modules)):
             if "widget" in self._modules[i].keys():
                 if self._modules[i]["widget"]:
@@ -206,16 +205,15 @@ class MpDialog(basedialog.BaseDialog):
                 rpvbox1 = self.factory.createVBox(self.rightPane)
                 rpvbox1.setSize(50, 70)
                 i = 0
-                for module in self._modules:
-                    logging.debug(f"refreshPane, module found: {module['title']}")
-                    if module["category"] == category["widget"]:
-                        modButton = yui.YTreeItem(
-                            module["title"], self.fullIconPath(module["icon"]), False
-                        )
+                for module in self._modules :
+                    if module['category'] == category['widget'] :
+                        logging.debug(f"Drawing {module['title']} with icon {module['icon']}")
+                        modButton = yui.YTreeItem(module['title'], self.fullIconPath(module['icon']), False)
                         modButton.this.own(False)
                         # self.eventManager.addWidgetEvent(modButton, self.onModuleSelected, True)
                         collection.push_back(modButton)
                         self._modules[i]["widget"] = modButton
+                        logging.debug(f"Icon path {self.rightPaneList.iconFullPath(modButton)}")
                     i += 1
                 break
         # Add the command to the list
@@ -249,14 +247,12 @@ class MpDialog(basedialog.BaseDialog):
             tmpCat = None
             for tmp in categories:
                 tmp["title"] = _(tmp["title"])
-                logging.debug(
-                    "Load categories: title content is << %s >>", tmp["title"]
-                )
+                logging.debug(f"Load categories: title content is << {tmp['title']} >> with icon {tmp['icon']}" );
                 tmpCat = self._getCategory(tmp["title"])
                 tmp["icon"] = self.fullIconPath(tmp["icon"])
                 logging.debug("Icon path content is << %s >>", tmp["icon"])
                 if tmpCat == None:
-                    catItem = yui.YTreeItem(tmp["title"], tmp["icon"])
+                    catItem = yui.YTreeItem(tmp['title'], self.fullIconPath(tmp['icon']))
                     catItem.this.own(False)
                     # childItem = yui.YTreeItem( catItem, "Child", self.fullIconPath(tmp['icon']))
                     # childItem.this.own(False)
@@ -288,23 +284,21 @@ class MpDialog(basedialog.BaseDialog):
     def fullIconPath(self, icon):
         if icon is None:
             return ""
+        if icon.find('.') == -1:
+            icon += ".png"
         if icon.startswith("/"):
             if os.path.exists(icon):
                 return icon
             else:
                 return ""
         for path in self.iconsPath:
-            logging.debug(f"Relative path for application icon: {icon}")
-            if not icon.endswith(".png"):
-                icon = icon + ".png"
             path = os.path.join(path, icon)
             if os.path.exists(path):
                 logging.debug(f"Found {path}")
                 return path
-            else:
-                logging.debug(f"Icon {path} doesn't exist")
-            logging.info(f"Icon {icon} doesn't exist")
-        return ""
+            else:                              
+                logging.debug(f"Icon {path} not found" )
+        return icon
 
     def catLoaded(self, category):
         """
@@ -393,6 +387,8 @@ class MpDialog(basedialog.BaseDialog):
     def _loadModule(self, module, category):
         if not self.modLoaded(module["title"]):
             module["category"] = category
+            if 'order' not in module.keys():
+                raise Exception(f"order not defined for {module['title']}")
             self._modules.append(module)
 
     def onModuleSelected(self, item):

@@ -4,12 +4,12 @@ endif(POLICY CMP0048)
 
 cmake_minimum_required(VERSION 3.7)
 
-project(mpan VERSION 0.1)
+project(mpan VERSION 0.0.1)
 
 include(GNUInstallDirs)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
 
-find_package(PythonInterp 3.4 REQUIRED)
+find_package(PythonInterp 3.8 REQUIRED)
 find_package(Gettext)
 execute_process(COMMAND ${PYTHON_EXECUTABLE} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib(), end='')" OUTPUT_VARIABLE PYTHON_INSTALL_DIR)
 string(REGEX REPLACE "\n$" "" ${PYTHON_INSTALL_DIR} "${PYTHON_INSTALL_DIR}")
@@ -26,18 +26,6 @@ if(CHECK_RUNTIME_DEPENDENCIES)
 
 	# Find yui module
 	find_python_module(yui REQUIRED)
-
-	# Find imortlib module
-	find_python_module(importlib REQUIRED)
-
-	# Find os module
-	find_python_module(os REQUIRED)
-	
-	find_python_module(glob REQUIRED)
-	
-	find_python_module(logging REQUIRED)
-	
-	find_python_module(gettext REQUIRED)
 
 endif(CHECK_RUNTIME_DEPENDENCIES)
 
@@ -71,11 +59,7 @@ install(DIRECTORY ${CMAKE_SOURCE_DIR}/conf/ DESTINATION ${CONFIG_FILES_SUBDIR})
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/extras/images DESTINATION ${CMAKE_INSTALL_IMAGESROOTDIR} )
 
 # Buils configuration file
-file(WRITE ${CMAKE_BINARY_DIR}/mpan.yaml "log_level : debug
-Theme :
-    path : ${CMAKE_INSTALL_IMAGESROOTDIR}/images,/usr/share/mcc/themes/default,/usr/share/icons/large,/usr/share/icons/hicolor/48x48/apps
-Configuration :
-    path : ${CONFIG_FILES_DIR}")
+file(WRITE ${CMAKE_BINARY_DIR}/mpan.yaml "log_level : debug\nTheme :\n    path : /usr/share/icons,/usr/share/icons/hicolor,/usr/share/icons/hicolor/images,/usr/lib/libDrakX/icons,/usr/share/libDrakX/pixmaps,/usr/share/mcc/themes/default\nConfiguration :\n    path : ${CONFIG_FILES_DIR}")
 # configure_file(${CMAKE_BINARY_DIR}/mpan.yaml ${CONFIG_FILES_DIR}/mpan.yaml @ONLY)
 install(FILES ${CMAKE_BINARY_DIR}/mpan.yaml DESTINATION ${CONFIG_FILES_DIR})
 # install(FILES ${CMAKE_SOURCE_DIR}/extras/mpan.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)

@@ -28,4 +28,5 @@ Then:
 ## Logging
 Logging is included in the code. 
 You can tune the level in /etc/mpan/mpan.yml with the entry `log_level`. The keywords are Python's standard (debug, info, ...)
+Logs are in mpan.log in the current path
 

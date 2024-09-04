@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Rodrigo de Almeida Sottomaior Macedo <rmsolucoeseminformatica@protonmail.com>, 2021
+# Rodrigo Sottomaior Macedo <sottomaiormacedotec@sottomaiormacedo.tech>, 2021
 # 3f37d448649cd548fa5a733e33387c2a_dee4ccf, 2021
 # Yuri Chornoivan <yurchor@ukr.net>, 2021
 # danilo freitas <danilo.gomes.freitas@gmail.com>, 2021
@@ -18,13 +18,14 @@ msgstr ""
 "POT-Creation-Date: 2021-04-06 19:44+0300\n"
 "PO-Revision-Date: 2021-04-07 19:27+0000\n"
 "Last-Translator: Michael Martins <michaelfm21@gmail.com>, 2021\n"
-"Language-Team: Portuguese (Brazil) (https://www.transifex.com/MageiaLinux/"
+"Language-Team: Portuguese (Brazil) (https://app.transifex.com/MageiaLinux/"
 "teams/9361/pt_BR/)\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
+"1000000 == 0 ? 1 : 2;\n"
 
 #: conf/categories.conf.in.h:1
 msgid "Software Management"

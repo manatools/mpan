@@ -4,11 +4,8 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Rodrigo Sottomaior Macedo <sottomaiormacedotec@sottomaiormacedo.tech>, 2021
 # 3f37d448649cd548fa5a733e33387c2a_dee4ccf, 2021
-# Yuri Chornoivan <yurchor@ukr.net>, 2021
-# danilo freitas <danilo.gomes.freitas@gmail.com>, 2021
-# Michael Martins <michaelfm21@gmail.com>, 2021
+# Michael Martins, 2025
 #
 #, fuzzy
 msgid ""
@@ -17,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-06 19:44+0300\n"
 "PO-Revision-Date: 2021-04-07 19:27+0000\n"
-"Last-Translator: Michael Martins <michaelfm21@gmail.com>, 2021\n"
+"Last-Translator: Michael Martins, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/MageiaLinux/"
 "teams/9361/pt_BR/)\n"
 "Language: pt_BR\n"
@@ -29,19 +26,19 @@ msgstr ""
 
 #: conf/categories.conf.in.h:1
 msgid "Software Management"
-msgstr "Gerenciamento de Software"
+msgstr "Gerenciamento de software"
 
 #: conf/categories.conf.in.h:2
 msgid "Install and Remove Software"
-msgstr "Instalar e Remover Software"
+msgstr "Instalar e remover software"
 
 #: conf/categories.conf.in.h:3
 msgid "Update your System"
-msgstr "Atualizar seu Sistema"
+msgstr "Atualizar seu sistema"
 
 #: conf/categories.conf.in.h:4
 msgid "Configure media sources for install and update"
-msgstr "Configurar Mídias para Atualização e Instalação de Novos Programas"
+msgstr "Configurar fontes de mídia para instalação e atualização"
 
 #: conf/categories.conf.in.h:5
 msgid "System"
@@ -49,7 +46,7 @@ msgstr "Sistema"
 
 #: conf/categories.conf.in.h:6
 msgid "Network &amp;&amp; Internet"
-msgstr "Rede & Internet"
+msgstr "Rede e internet"
 
 #: conf/categories.conf.in.h:7
 msgid "Security"
@@ -57,31 +54,31 @@ msgstr "Segurança"
 
 #: conf/categories.conf.in.h:8
 msgid "Boot"
-msgstr "Boot"
+msgstr "Inicialização"
 
 #: extras/mpan.desktop.in.h:1
 msgid "mpan - Mageia ManaTools Control Panel"
-msgstr "mpan - Painel de Controle Mageia ManaTools"
+msgstr "mpan - Painel de controle do Mageia ManaTools"
 
 #: extras/mpan.desktop.in.h:2
 msgid "ManaTools panel - application launcher"
-msgstr "Painel ManaTools - Lançador de Aplicação"
+msgstr "Painel do ManaTools - iniciador de aplicativos"
 
 #: mpan/mpan:47
 msgid "System mode"
-msgstr "Modo do sistema"
+msgstr "Modo de sistema"
 
 #: mpan/mpan:49
 msgid "User mode"
-msgstr "Modo usuário"
+msgstr "Modo de usuário"
 
 #: mpan/mpan:50
 msgid "ManaTools panel"
-msgstr "Painel ManaTools"
+msgstr "Painel do ManaTools"
 
 #: mpan/mpan:72
 msgid "Manatools panel - {}"
-msgstr "Painel Manatools - {}"
+msgstr "Painel do Manatools - {}"
 
 #: mpan/mpan:141
 msgid "Help"
@@ -100,5 +97,5 @@ msgid ""
 "Manatools panel provides an interface for launching modules which are part "
 "of the manatools."
 msgstr ""
-"O painel Manatools fornece uma interface para lançar módulos que fazem parte "
-"dos manatools."
+"O painel fornece uma interface para iniciar módulos que fazem parte do "
+"ManaTools."
